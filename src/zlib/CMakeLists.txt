@@ -1,5 +1,5 @@
-# Copyright (C) 2005-2011 MaNGOS <http://getmangos.com/>
-# Copyright (C) 2009-2011 MaNGOSZero <http://github.com/mangoszero/mangoszero/>
+#
+# Copyright (C) 2005-2011 MaNGOS project <http://getmangos.com/>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,11 +14,27 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
 
-## Process this file with automake to produce Makefile.in
+set(zlib_SRCS
+  adler32.c
+  compress.c
+  crc32.c
+  deflate.c
+  example.c
+  infback.c
+  inffast.c
+  inflate.c
+  inftrees.c
+  trees.c
+  uncompr.c
+  zutil.c
+)
 
-## Sub-directories to parse
-SUBDIRS = g3dlite gsoap zlib
+include_directories(
+  ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
-## Additional files to include when running 'make dist'
-#  Nothing yet.
+add_library(zlib STATIC
+  ${zlib_SRCS}
+)

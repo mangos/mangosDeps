@@ -1,5 +1,5 @@
-# Copyright (C) 2005-2011 MaNGOS <http://getmangos.com/>
-# Copyright (C) 2009-2011 MaNGOSZero <http://github.com/mangoszero/mangoszero/>
+#
+# Copyright (C) 2005-2011 MaNGOS project <http://getmangos.com/>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,18 +14,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
 
-## Process this file with automake to produce Makefile.in
+file(GLOB gsoap_SRCS *.cpp)
 
-## Sub-directories to parse
-SUBDIRS = include lib src
+include_directories(
+  ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_SOURCE_DIR}/dep/include/gsoap
+)
 
-if MANGOS_BUILD_ACE
-SUBDIRS += ACE_wrappers
-endif
-
-# Intel's TBB
-SUBDIRS += tbb
-
-## Additional files to include when running 'make dist'
-#  Nothing yet.
+add_library(gsoap STATIC
+  ${gsoap_SRCS}
+)
