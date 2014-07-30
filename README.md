@@ -1,8 +1,9 @@
 [![](https://www.getmangos.eu/images/primus/blue/misc/logo.png)](http://www.getmangos.eu)&nbsp;
-[![](/icons/FORUM.gif)](https://www.getmangos.eu/forum.php)
-[![](/icons/WIKI.gif)](http://github.com/mangoswiki/wiki/wiki)
-[![](/icons/TOOLS.gif)](http://github.com/mangostools)
-[![](/icons/TRACKER.gif)](https://www.getmangos.eu/project.php)
+
+[![](https://github.com/mangoszero/server/raw/master/icons/FORUM.gif)](https://www.getmangos.eu/forum.php)
+[![](https://github.com/mangoszero/server/raw/master/icons/WIKI.gif)](http://github.com/mangoswiki/wiki/wiki)
+[![](https://github.com/mangoszero/server/raw/master/icons/TOOLS.gif)](http://github.com/mangostools)
+[![](https://github.com/mangoszero/server/raw/master/icons/TRACKER.gif)](https://www.getmangos.eu/project.php)
 
 Mangos Dependencies
 ------------
