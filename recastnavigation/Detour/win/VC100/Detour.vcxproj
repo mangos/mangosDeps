@@ -90,7 +90,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;DEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;DEBUG;_MBCS;DT_POLYREF64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -101,7 +101,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;DEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;DEBUG;_MBCS;DT_POLYREF64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -115,7 +115,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_MBCS;DT_POLYREF64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
@@ -131,7 +131,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_MBCS;DT_POLYREF64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
@@ -145,10 +145,12 @@
     <ClInclude Include="..\..\Include\DetourAlloc.h" />
     <ClInclude Include="..\..\Include\DetourAssert.h" />
     <ClInclude Include="..\..\Include\DetourCommon.h" />
+    <ClInclude Include="..\..\Include\DetourMath.h" />
     <ClInclude Include="..\..\Include\DetourNavMesh.h" />
     <ClInclude Include="..\..\Include\DetourNavMeshBuilder.h" />
     <ClInclude Include="..\..\Include\DetourNavMeshQuery.h" />
     <ClInclude Include="..\..\Include\DetourNode.h" />
+    <ClInclude Include="..\..\Include\DetourStatus.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\DetourAlloc.cpp" />
