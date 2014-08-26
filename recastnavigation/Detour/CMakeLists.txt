@@ -37,4 +37,5 @@ include_directories(
 
 #-----------------------------------------------------------------------------
 # Build the Detour library
-add_library(detour STATIC ${Detour_LIB_SRCS})
+#add_library(detour STATIC ${Detour_LIB_SRCS})
+add_subdirectory(Source)
