@@ -15,7 +15,7 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 if(NOT ACE_USE_EXTERNAL)
-  add_subdirectory(ACE_wrappers)
+  add_subdirectory(acelite)
 endif()
 
 add_subdirectory(recastnavigation)
