@@ -327,7 +327,7 @@ endif()
 include_directories(
   ${CMAKE_SOURCE_DIR}/dep/acelite
   ${CMAKE_CURRENT_SOURCE_DIR}/PrecompiledHeaders
-  ${CMAKE_SOURCE_DIR}/dep/zlib
+  ${CMAKE_SOURCE_DIR}/dep/src/zlib
 )
 
 # Needed for PCH support
