@@ -349,4 +349,9 @@ if( USE_COREPCH )
   add_cxx_pch(ace ${ace_PCH_HDR} ${ace_PCH_SRC})
 endif()
 
-install(TARGETS ace RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}")
+install(
+    TARGETS ace
+    RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}"
+    #is lib/ correct?
+    LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/"
+)
