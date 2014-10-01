@@ -24,7 +24,7 @@
 #ifdef _WIN32
   #include "ace/config-win32.h"
 #else
-  #include "ace/config.h"
+  #include "ace/config-linux.h"
 #endif
 
 #include "ace/Version.h"
