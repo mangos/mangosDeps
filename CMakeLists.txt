@@ -20,7 +20,8 @@ endif()
 
 add_subdirectory(recastnavigation)
 add_subdirectory(src)
-add_subdirectory(libmpq)
+add_subdirectory(StormLib)
+#add_subdirectory(libmpq)
 
 if(SCRIPT_LIB_ELUNA)
     add_subdirectory(lualib)
