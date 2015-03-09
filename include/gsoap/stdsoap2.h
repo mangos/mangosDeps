@@ -206,7 +206,6 @@ A commercial use license is available from Genivia, Inc., contact@genivia.com
 #endif
 
 #ifdef HAVE_CONFIG_H
-# include "../../../src/shared/Config/Config.h"
 # if defined(WITH_OPENSSL)
 #  ifndef HAVE_OPENSSL_SSL_H
 #   undef WITH_OPENSSL
