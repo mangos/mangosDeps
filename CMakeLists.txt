@@ -33,7 +33,6 @@ else()
 endif()
 
 add_subdirectory(recastnavigation)
-add_subdirectory(libmpq)
 add_subdirectory(g3dlite)
 add_subdirectory(zlib)
 add_subdirectory(bzip2)
