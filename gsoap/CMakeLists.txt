@@ -14,26 +14,19 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-if(NOT ACE_USE_EXTERNAL)
-  add_subdirectory(acelite)
-endif()
+set(LIBRARY_NAME gsoap)
 
-if(SOAP)
-    add_subdirectory(gsoap)
-endif()
+set(LIBRARY_SRCS
+    stdsoap2.cpp
+	stdsoap2.h
+)
 
-if(SCRIPT_LIB_ELUNA)
-    add_subdirectory(lualib)
-endif()
+include_directories(
+  "${CMAKE_CURRENT_SOURCE_DIR}"
+  # Used to get access to config.h
+  "${CMAKE_BINARY_DIR}"
+)
 
-if(USE_STORMLIB)
-    add_subdirectory(StormLib)
-else()
-    add_subdirectory(libmpq)
-endif()
-
-add_subdirectory(recastnavigation)
-add_subdirectory(libmpq)
-add_subdirectory(g3dlite)
-add_subdirectory(zlib)
-add_subdirectory(bzip2)
+add_library(${LIBRARY_NAME} STATIC
+  ${LIBRARY_SRCS}
+)
