@@ -16,17 +16,12 @@
 
 set(LIBRARY_NAME gsoap)
 
-set(LIBRARY_SRCS
-    stdsoap2.cpp
-	stdsoap2.h
-)
+file(GLOB_RECURSE GSOAP_LIBRARY_SRCS *.cpp *.h)
 
 include_directories(
-  "${CMAKE_CURRENT_SOURCE_DIR}"
-  # Used to get access to config.h
-  "${CMAKE_BINARY_DIR}"
+    "${CMAKE_CURRENT_SOURCE_DIR}"
+    # Used to get access to config.h
+    "${CMAKE_BINARY_DIR}"
 )
 
-add_library(${LIBRARY_NAME} STATIC
-  ${LIBRARY_SRCS}
-)
+add_library(${LIBRARY_NAME} STATIC ${GSOAP_LIBRARY_SRCS})
