@@ -31,71 +31,9 @@
 #include <iostream>
 #include <deque>
 #include "loadlib.h"
-#include "libmpq/mpq.h"
+#include "stormlib.h"
 
 using namespace std;
-
-/**
- * @brief
- *
- */
-class MPQArchive
-{
-
-    public:
-        mpq_archive_s* mpq_a; /**< TODO */
-
-        /**
-         * @brief
-         *
-         * @param filename
-         */
-        MPQArchive(const char* filename);
-        /**
-         * @brief
-         *
-         */
-        void close();
-
-        /**
-         * @brief
-         *
-         * @param filelist
-         */
-        void GetFileListTo(vector<string>& filelist)
-        {
-            uint32 filenum;
-            if (libmpq__file_number(mpq_a, "(listfile)", &filenum)) { return; }
-            libmpq__off_t size, transferred;
-            libmpq__file_unpacked_size(mpq_a, filenum, &size);
-
-            char* buffer = new char[(int)size];
-
-            libmpq__file_read(mpq_a, filenum, (unsigned char*)buffer, size, &transferred);
-
-            char seps[] = "\n";
-            char* token;
-
-            token = strtok(buffer, seps);
-            uint32 counter = 0;
-            while ((token != NULL) && (counter < size))
-            {
-                //cout << token << endl;
-                token[strlen(token) - 1] = 0;
-                string s = token;
-                filelist.push_back(s);
-                counter += strlen(token) + 2;
-                token = strtok(NULL, seps);
-            }
-
-            delete[] buffer;
-        }
-};
-/**
- * @brief
- *
- */
-typedef std::deque<MPQArchive*> ArchiveSet;
 
 /**
  * @brief
@@ -106,7 +44,7 @@ class MPQFile
         //MPQHANDLE handle;
         bool eof; /**< TODO */
         char* buffer; /**< TODO */
-        libmpq__off_t pointer, size; /**< TODO */
+        size_t pointer, size; /**< TODO */
 
         /**
          * @brief disable copying
@@ -122,7 +60,7 @@ class MPQFile
          *
          * @param filename filenames are not case sensitive
          */
-        MPQFile(const char* filename);
+        MPQFile(HANDLE mpq, const char* filename);
         /**
          * @brief
          *

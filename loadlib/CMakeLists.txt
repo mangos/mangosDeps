@@ -8,8 +8,8 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-include_directories (${CMAKE_SOURCE_DIR}/dep/libmpq/)
+include_directories (${CMAKE_SOURCE_DIR}/dep/StormLib/src)
 
-add_library (loadlib loadlib.cpp  adt.cpp  wdt.cpp mpq_libmpq.cpp)
+add_library (loadlib loadlib.cpp  adt.cpp  wdt.cpp mpqfile.cpp)
 # link loadlib with zlib
 target_link_libraries (loadlib zlib)
