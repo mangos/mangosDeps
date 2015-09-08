@@ -1,0 +1,5 @@
+The default files for ACE_LITE were ammended in commit:
+
+https://github.com/mangos/mangosDeps/commit/52e4c984dbca474f7a4353b444339067a95ea277
+
+these will need to be reapplied should a new version be added.
