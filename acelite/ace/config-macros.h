@@ -24,10 +24,33 @@
 #define ACE_HAS_IPV6 1 
 #define ACE_USES_IPV4_IPV6_MIGRATION 1 
 
-#ifdef _WIN32
-#include "ace/config-win32.h"
-#else
-#include "ace/config-linux.h"
+#if defined(_WIN32)
+#  include "ace/config-win32.h"
+#elif defined(__linux) || defined(__linux__)
+#  include "ace/config-linux.h"
+#elif defined(__FreeBSD__)
+#  include "ace/config-freebsd.h"
+#elif defined(__APPLE__)
+#  include <AvailabilityMacros.h>
+#  if defined(MAC_OS_X_VERSION_10_10)
+#    include "ace/config-macosx-yosemite.h"
+#  elif defined(MAC_OS_X_VERSION_10_9)
+#    include "ace/config-macosx-mavericks.h"
+#  elif defined(MAC_OS_X_VERSION_10_8)
+#    include "ace/config-macosx-mountainlion.h"
+#  elif defined(MAC_OS_X_VERSION_10_7)
+#    include "ace/config-macosx-lion.h"
+#  elif defined(MAC_OS_X_VERSION_10_6)
+#    include "ace/config-macosx-snowleopard.h"
+#  elif defined(MAC_OS_X_VERSION_10_5)
+#    include "ace/config-macosx-leopard.h"
+#  elif defined(MAC_OS_X_VERSION_10_4)
+#    include "ace/config-macosx-tiger.h"
+#  elif defined(MAC_OS_X_VERSION_10_3)
+#    include "ace/config-macosx-panther.h"
+#  else
+#    include "ace/config-macosx.h"
+#endif
 #endif
 
 #include "ace/Version.h"
