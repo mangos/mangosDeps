@@ -87,9 +87,12 @@ MPQFile::MPQFile(const char* filename):
         {
             // printf("info: file %s has size %d; considered dummy file.\n", filename, size);
             eof = true;
+            if (buffer) { delete[] buffer; }
             buffer = 0;
             return;
         }
+
+        if (buffer) { delete[] buffer; }
         buffer = new char[(int)size];
 
         //libmpq_file_getdata
