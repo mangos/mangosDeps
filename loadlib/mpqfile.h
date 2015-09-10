@@ -31,7 +31,7 @@
 #include <iostream>
 #include <deque>
 #include "loadlib.h"
-#include "stormlib.h"
+#include "StormLib.h"
 
 using namespace std;
 
