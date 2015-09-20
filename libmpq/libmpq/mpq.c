@@ -79,6 +79,7 @@ int32_t libmpq__archive_open(mpq_archive_s **mpq_archive, const char *mpq_filena
 	uint32_t count          = 0;
 	int32_t result          = 0;
 	uint32_t header_search	= FALSE;
+        size_t rc               = 0;
 
 	if (archive_offset == -1) {
 		archive_offset = 0;
@@ -211,7 +212,7 @@ int32_t libmpq__archive_open(mpq_archive_s **mpq_archive, const char *mpq_filena
 	}
 
 	/* read the hash table into the buffer. */
-	if ((rb = fread((*mpq_archive)->mpq_hash, 1, (*mpq_archive)->mpq_header.hash_table_count * sizeof(mpq_hash_s), (*mpq_archive)->fp)) < 0) {
+	if ((rb = fread((*mpq_archive)->mpq_hash, 1, (rc = (*mpq_archive)->mpq_header.hash_table_count * sizeof(mpq_hash_s)), (*mpq_archive)->fp)) < rc) {
 
 		/* something on read failed. */
 		result = LIBMPQ_ERROR_READ;
@@ -230,7 +231,7 @@ int32_t libmpq__archive_open(mpq_archive_s **mpq_archive, const char *mpq_filena
 	}
 
 	/* read the block table into the buffer. */
-	if ((rb = fread((*mpq_archive)->mpq_block, 1, (*mpq_archive)->mpq_header.block_table_count * sizeof(mpq_block_s), (*mpq_archive)->fp)) < 0) {
+	if ((rb = fread((*mpq_archive)->mpq_block, 1, (rc = (*mpq_archive)->mpq_header.block_table_count * sizeof(mpq_block_s)), (*mpq_archive)->fp)) < rc) {
 
 		/* something on read failed. */
 		result = LIBMPQ_ERROR_READ;
@@ -252,7 +253,7 @@ int32_t libmpq__archive_open(mpq_archive_s **mpq_archive, const char *mpq_filena
 		}
 
 		/* read header from file. */
-		if ((rb = fread((*mpq_archive)->mpq_block_ex, 1, (*mpq_archive)->mpq_header.block_table_count * sizeof(mpq_block_ex_s), (*mpq_archive)->fp)) < 0) {
+		if ((rb = fread((*mpq_archive)->mpq_block_ex, 1, (rc = (*mpq_archive)->mpq_header.block_table_count * sizeof(mpq_block_ex_s)), (*mpq_archive)->fp)) < rc) {
 
 			/* no valid mpq archive. */
 			result = LIBMPQ_ERROR_FORMAT;
@@ -912,7 +913,7 @@ int32_t libmpq__block_read(mpq_archive_s *mpq_archive, uint32_t file_number, uin
 	}
 
 	/* read block from file. */
-	if (fread(in_buf, 1, in_size, mpq_archive->fp) < 0) {
+	if (fread(in_buf, 1, in_size, mpq_archive->fp) < in_size) {
 
 		/* free buffers. */
 		free(in_buf);
