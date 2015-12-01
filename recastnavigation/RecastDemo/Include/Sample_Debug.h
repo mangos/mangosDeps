@@ -27,31 +27,31 @@
 class Sample_Debug : public Sample
 {
 protected:
-	rcCompactHeightfield* m_chf;
-	rcContourSet* m_cset;
-	rcPolyMesh* m_pmesh;
+    rcCompactHeightfield* m_chf;
+    rcContourSet* m_cset;
+    rcPolyMesh* m_pmesh;
 
-	float m_ext[3];
-	float m_center[3];
-	float m_bmin[3], m_bmax[3];
-	dtPolyRef m_ref;
-	
+    float m_ext[3];
+    float m_center[3];
+    float m_bmin[3], m_bmax[3];
+    dtPolyRef m_ref;
+    
 public:
-	Sample_Debug();
-	virtual ~Sample_Debug();
-	
-	virtual void handleSettings();
-	virtual void handleTools();
-	virtual void handleDebugMode();
-	virtual void handleClick(const float* s, const float* p, bool shift);
-	virtual void handleToggle();
-	virtual void handleRender();
-	virtual void handleRenderOverlay(double* proj, double* model, int* view);
-	virtual void handleMeshChanged(class InputGeom* geom);
-	virtual bool handleBuild();
+    Sample_Debug();
+    virtual ~Sample_Debug();
+    
+    virtual void handleSettings();
+    virtual void handleTools();
+    virtual void handleDebugMode();
+    virtual void handleClick(const float* s, const float* p, bool shift);
+    virtual void handleToggle();
+    virtual void handleRender();
+    virtual void handleRenderOverlay(double* proj, double* model, int* view);
+    virtual void handleMeshChanged(class InputGeom* geom);
+    virtual bool handleBuild();
 
-	virtual const float* getBoundsMin();
-	virtual const float* getBoundsMax();
+    virtual const float* getBoundsMin();
+    virtual const float* getBoundsMax();
 };
 
 

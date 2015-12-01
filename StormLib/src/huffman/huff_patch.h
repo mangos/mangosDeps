@@ -15,7 +15,7 @@
 
 #include <stdint.h>
 
-#define SIntPtr	intptr_t
+#define SIntPtr    intptr_t
 
 //-----------------------------------------------------------------------------
 // Defines
