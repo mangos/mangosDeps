@@ -478,6 +478,7 @@ class ADT_file : public FileLoader
         void free();
 
         adt_MHDR* a_grid; /**< TODO */
+        adt_MCNK* cells[ADT_CELLS_PER_GRID][ADT_CELLS_PER_GRID];
 };
 
 /**
