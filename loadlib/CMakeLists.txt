@@ -12,4 +12,4 @@ include_directories (${CMAKE_SOURCE_DIR}/dep/StormLib/src)
 
 add_library (loadlib loadlib.cpp  adt.cpp  wdt.cpp mpqfile.cpp)
 # link loadlib with zlib
-target_link_libraries (loadlib zlib)
+target_link_libraries (loadlib zlib StormLib)
