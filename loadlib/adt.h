@@ -408,6 +408,7 @@ class adt_MHDR
             uint32 fcc; /**< TODO */
             char   fcc_txt[4]; /**< TODO */
         };
+    public:
         uint32 size; /**< TODO */
 
         uint32 pad; /**< TODO */
@@ -426,7 +427,6 @@ class adt_MHDR
         uint32 data3; /**< TODO */
         uint32 data4; /**< TODO */
         uint32 data5; /**< TODO */
-    public:
         /**
          * @brief
          *
