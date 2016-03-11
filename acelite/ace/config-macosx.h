@@ -15,6 +15,7 @@
 #endif /* __GNUG__ */
 
 #define ACE_SIZE_T_FORMAT_SPECIFIER_ASCII "%lu"
+#define ACE_UINT64_TYPE unsigned long long
 
 #if defined (ACE_HAS_PENTIUM)
 # undef ACE_HAS_PENTIUM
