@@ -4,5 +4,8 @@ https://github.com/mangos/mangosDeps/commit/52e4c984dbca474f7a4353b444339067a95e
 
 these will need to be reapplied should a new version be added.
 
+
 Note:
-On MacOS X, the ACE_UINT64_TYPE should be defined as unsigned long long (config-macosx.h)
+On MacOS X, the ACE_UINT64_TYPE should be defined as follows in ace/config-macosx-leopard.h
+
+#define ACE_UINT64_TYPE unsigned long long
