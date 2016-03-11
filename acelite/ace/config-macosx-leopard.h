@@ -25,6 +25,8 @@
 # endif // GCC 3.3
 #endif // ACE_SIZEOF_LONG_DOUBLE
 
+#define ACE_UINT64_TYPE unsigned long long
+
 #if defined (__GNUG__)
 # include "ace/config-g++-common.h"
 #endif /* __GNUG__ */
