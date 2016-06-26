@@ -4,6 +4,15 @@ https://github.com/mangos/mangosDeps/commit/52e4c984dbca474f7a4353b444339067a95e
 
 these will need to be reapplied should a new version be added.
 
+Also the following two lines were amended to fix a connection bottleneck (especially on Linux):
+
+ACE_DEFAULT_BACKLOG - Change 5 to 128
+https://github.com/mangos/mangosDeps/blob/Rel21/acelite/ace/Default_Constants.h#L81
+
+ACE_DEFAULT_ASYNCH_BACKLOG - Change 5 to 128
+https://github.com/mangos/mangosDeps/blob/Rel21/acelite/ace/Default_Constants.h#L85
+
+
 
 Note:
 On MacOS X, the ACE_UINT64_TYPE should be defined as follows in ace/config-macosx-leopard.h
