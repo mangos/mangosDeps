@@ -2,113 +2,115 @@ project(StormLib)
 cmake_minimum_required(VERSION 2.6)
 
 set(SRC_FILES
-   src/adpcm/adpcm.cpp
-   src/huffman/huff.cpp
-   src/jenkins/lookup3.c
-   src/lzma/C/LzFind.c
-   src/lzma/C/LzmaDec.c
-   src/lzma/C/LzmaEnc.c
-   src/pklib/explode.c
-   src/pklib/implode.c
-   src/sparse/sparse.cpp
-   src/FileStream.cpp
-   src/SBaseCommon.cpp
-   src/SBaseDumpData.cpp
-   src/SBaseFileTable.cpp
-   src/SCompression.cpp
-   src/SFileAddFile.cpp
-   src/SFileAttributes.cpp
-   src/SFileCompactArchive.cpp
-   src/SFileCreateArchive.cpp
-   src/SFileExtractFile.cpp
-   src/SFileFindFile.cpp
-   src/SFileListFile.cpp
-   src/SFileOpenArchive.cpp
-   src/SFileOpenFileEx.cpp
-   src/SFilePatchArchives.cpp
-   src/SFileReadFile.cpp
-   src/SFileVerify.cpp
-   src/libtomcrypt/src/pk/rsa/rsa_verify_simple.c
-   src/libtomcrypt/src/misc/crypt_libc.c
+           src/adpcm/adpcm.cpp
+           src/huffman/huff.cpp
+           src/jenkins/lookup3.c
+           src/lzma/C/LzFind.c
+           src/lzma/C/LzmaDec.c
+           src/lzma/C/LzmaEnc.c
+           src/pklib/explode.c
+           src/pklib/implode.c
+           src/sparse/sparse.cpp
+           src/FileStream.cpp
+           src/SBaseCommon.cpp
+           src/SBaseDumpData.cpp
+           src/SBaseFileTable.cpp
+           src/SBaseSubTypes.cpp
+           src/SCompression.cpp
+           src/SFileAddFile.cpp
+           src/SFileAttributes.cpp
+           src/SFileCompactArchive.cpp
+           src/SFileCreateArchive.cpp
+           src/SFileExtractFile.cpp
+           src/SFileFindFile.cpp
+           src/SFileGetFileInfo.cpp
+           src/SFileListFile.cpp
+           src/SFileOpenArchive.cpp
+           src/SFileOpenFileEx.cpp
+           src/SFilePatchArchives.cpp
+           src/SFileReadFile.cpp
+           src/SFileVerify.cpp
+           src/libtomcrypt/src/pk/rsa/rsa_verify_simple.c
+           src/libtomcrypt/src/misc/crypt_libc.c
 )
 
 set(TOMCRYPT_FILES
-   src/libtomcrypt/src/hashes/hash_memory.c
-   src/libtomcrypt/src/hashes/md5.c
-   src/libtomcrypt/src/hashes/sha1.c
-   src/libtomcrypt/src/math/ltm_desc.c
-   src/libtomcrypt/src/math/multi.c
-   src/libtomcrypt/src/math/rand_prime.c
-   src/libtomcrypt/src/misc/base64_decode.c
-   src/libtomcrypt/src/misc/crypt_argchk.c
-   src/libtomcrypt/src/misc/crypt_find_hash.c
-   src/libtomcrypt/src/misc/crypt_find_prng.c
-   src/libtomcrypt/src/misc/crypt_hash_descriptor.c
-   src/libtomcrypt/src/misc/crypt_hash_is_valid.c
-   src/libtomcrypt/src/misc/crypt_ltc_mp_descriptor.c
-   src/libtomcrypt/src/misc/crypt_prng_descriptor.c
-   src/libtomcrypt/src/misc/crypt_prng_is_valid.c
-   src/libtomcrypt/src/misc/crypt_register_hash.c
-   src/libtomcrypt/src/misc/crypt_register_prng.c
-   src/libtomcrypt/src/misc/zeromem.c
-   src/libtomcrypt/src/pk/asn1/der_decode_bit_string.c
-   src/libtomcrypt/src/pk/asn1/der_decode_boolean.c
-   src/libtomcrypt/src/pk/asn1/der_decode_choice.c
-   src/libtomcrypt/src/pk/asn1/der_decode_ia5_string.c
-   src/libtomcrypt/src/pk/asn1/der_decode_integer.c
-   src/libtomcrypt/src/pk/asn1/der_decode_object_identifier.c
-   src/libtomcrypt/src/pk/asn1/der_decode_octet_string.c
-   src/libtomcrypt/src/pk/asn1/der_decode_printable_string.c
-   src/libtomcrypt/src/pk/asn1/der_decode_sequence_ex.c
-   src/libtomcrypt/src/pk/asn1/der_decode_sequence_flexi.c
-   src/libtomcrypt/src/pk/asn1/der_decode_sequence_multi.c
-   src/libtomcrypt/src/pk/asn1/der_decode_short_integer.c
-   src/libtomcrypt/src/pk/asn1/der_decode_utctime.c
-   src/libtomcrypt/src/pk/asn1/der_decode_utf8_string.c
-   src/libtomcrypt/src/pk/asn1/der_encode_bit_string.c
-   src/libtomcrypt/src/pk/asn1/der_encode_boolean.c
-   src/libtomcrypt/src/pk/asn1/der_encode_ia5_string.c
-   src/libtomcrypt/src/pk/asn1/der_encode_integer.c
-   src/libtomcrypt/src/pk/asn1/der_encode_object_identifier.c
-   src/libtomcrypt/src/pk/asn1/der_encode_octet_string.c
-   src/libtomcrypt/src/pk/asn1/der_encode_printable_string.c
-   src/libtomcrypt/src/pk/asn1/der_encode_sequence_ex.c
-   src/libtomcrypt/src/pk/asn1/der_encode_sequence_multi.c
-   src/libtomcrypt/src/pk/asn1/der_encode_set.c
-   src/libtomcrypt/src/pk/asn1/der_encode_setof.c
-   src/libtomcrypt/src/pk/asn1/der_encode_short_integer.c
-   src/libtomcrypt/src/pk/asn1/der_encode_utctime.c
-   src/libtomcrypt/src/pk/asn1/der_encode_utf8_string.c
-   src/libtomcrypt/src/pk/asn1/der_length_bit_string.c
-   src/libtomcrypt/src/pk/asn1/der_length_boolean.c
-   src/libtomcrypt/src/pk/asn1/der_length_ia5_string.c
-   src/libtomcrypt/src/pk/asn1/der_length_integer.c
-   src/libtomcrypt/src/pk/asn1/der_length_object_identifier.c
-   src/libtomcrypt/src/pk/asn1/der_length_octet_string.c
-   src/libtomcrypt/src/pk/asn1/der_length_printable_string.c
-   src/libtomcrypt/src/pk/asn1/der_length_sequence.c
-   src/libtomcrypt/src/pk/asn1/der_length_utctime.c
-   src/libtomcrypt/src/pk/asn1/der_sequence_free.c
-   src/libtomcrypt/src/pk/asn1/der_length_utf8_string.c
-   src/libtomcrypt/src/pk/asn1/der_length_short_integer.c
-   src/libtomcrypt/src/pk/ecc/ltc_ecc_map.c
-   src/libtomcrypt/src/pk/ecc/ltc_ecc_mul2add.c
-   src/libtomcrypt/src/pk/ecc/ltc_ecc_mulmod.c
-   src/libtomcrypt/src/pk/ecc/ltc_ecc_points.c
-   src/libtomcrypt/src/pk/ecc/ltc_ecc_projective_add_point.c
-   src/libtomcrypt/src/pk/ecc/ltc_ecc_projective_dbl_point.c
-   src/libtomcrypt/src/pk/pkcs1/pkcs_1_mgf1.c
-   src/libtomcrypt/src/pk/pkcs1/pkcs_1_oaep_decode.c
-   src/libtomcrypt/src/pk/pkcs1/pkcs_1_pss_decode.c
-   src/libtomcrypt/src/pk/pkcs1/pkcs_1_pss_encode.c
-   src/libtomcrypt/src/pk/pkcs1/pkcs_1_v1_5_decode.c
-   src/libtomcrypt/src/pk/pkcs1/pkcs_1_v1_5_encode.c
-   src/libtomcrypt/src/pk/rsa/rsa_exptmod.c
-   src/libtomcrypt/src/pk/rsa/rsa_free.c
-   src/libtomcrypt/src/pk/rsa/rsa_import.c
-   src/libtomcrypt/src/pk/rsa/rsa_make_key.c
-   src/libtomcrypt/src/pk/rsa/rsa_sign_hash.c
-   src/libtomcrypt/src/pk/rsa/rsa_verify_hash.c
+           src/libtomcrypt/src/hashes/hash_memory.c
+           src/libtomcrypt/src/hashes/md5.c
+           src/libtomcrypt/src/hashes/sha1.c
+           src/libtomcrypt/src/math/ltm_desc.c
+           src/libtomcrypt/src/math/multi.c
+           src/libtomcrypt/src/math/rand_prime.c
+           src/libtomcrypt/src/misc/base64_decode.c
+           src/libtomcrypt/src/misc/crypt_argchk.c
+           src/libtomcrypt/src/misc/crypt_find_hash.c
+           src/libtomcrypt/src/misc/crypt_find_prng.c
+           src/libtomcrypt/src/misc/crypt_hash_descriptor.c
+           src/libtomcrypt/src/misc/crypt_hash_is_valid.c
+           src/libtomcrypt/src/misc/crypt_ltc_mp_descriptor.c
+           src/libtomcrypt/src/misc/crypt_prng_descriptor.c
+           src/libtomcrypt/src/misc/crypt_prng_is_valid.c
+           src/libtomcrypt/src/misc/crypt_register_hash.c
+           src/libtomcrypt/src/misc/crypt_register_prng.c
+           src/libtomcrypt/src/misc/zeromem.c
+           src/libtomcrypt/src/pk/asn1/der_decode_bit_string.c
+           src/libtomcrypt/src/pk/asn1/der_decode_boolean.c
+           src/libtomcrypt/src/pk/asn1/der_decode_choice.c
+           src/libtomcrypt/src/pk/asn1/der_decode_ia5_string.c
+           src/libtomcrypt/src/pk/asn1/der_decode_integer.c
+           src/libtomcrypt/src/pk/asn1/der_decode_object_identifier.c
+           src/libtomcrypt/src/pk/asn1/der_decode_octet_string.c
+           src/libtomcrypt/src/pk/asn1/der_decode_printable_string.c
+           src/libtomcrypt/src/pk/asn1/der_decode_sequence_ex.c
+           src/libtomcrypt/src/pk/asn1/der_decode_sequence_flexi.c
+           src/libtomcrypt/src/pk/asn1/der_decode_sequence_multi.c
+           src/libtomcrypt/src/pk/asn1/der_decode_short_integer.c
+           src/libtomcrypt/src/pk/asn1/der_decode_utctime.c
+           src/libtomcrypt/src/pk/asn1/der_decode_utf8_string.c
+           src/libtomcrypt/src/pk/asn1/der_encode_bit_string.c
+           src/libtomcrypt/src/pk/asn1/der_encode_boolean.c
+           src/libtomcrypt/src/pk/asn1/der_encode_ia5_string.c
+           src/libtomcrypt/src/pk/asn1/der_encode_integer.c
+           src/libtomcrypt/src/pk/asn1/der_encode_object_identifier.c
+           src/libtomcrypt/src/pk/asn1/der_encode_octet_string.c
+           src/libtomcrypt/src/pk/asn1/der_encode_printable_string.c
+           src/libtomcrypt/src/pk/asn1/der_encode_sequence_ex.c
+           src/libtomcrypt/src/pk/asn1/der_encode_sequence_multi.c
+           src/libtomcrypt/src/pk/asn1/der_encode_set.c
+           src/libtomcrypt/src/pk/asn1/der_encode_setof.c
+           src/libtomcrypt/src/pk/asn1/der_encode_short_integer.c
+           src/libtomcrypt/src/pk/asn1/der_encode_utctime.c
+           src/libtomcrypt/src/pk/asn1/der_encode_utf8_string.c
+           src/libtomcrypt/src/pk/asn1/der_length_bit_string.c
+           src/libtomcrypt/src/pk/asn1/der_length_boolean.c
+           src/libtomcrypt/src/pk/asn1/der_length_ia5_string.c
+           src/libtomcrypt/src/pk/asn1/der_length_integer.c
+           src/libtomcrypt/src/pk/asn1/der_length_object_identifier.c
+           src/libtomcrypt/src/pk/asn1/der_length_octet_string.c
+           src/libtomcrypt/src/pk/asn1/der_length_printable_string.c
+           src/libtomcrypt/src/pk/asn1/der_length_sequence.c
+           src/libtomcrypt/src/pk/asn1/der_length_utctime.c
+           src/libtomcrypt/src/pk/asn1/der_sequence_free.c
+           src/libtomcrypt/src/pk/asn1/der_length_utf8_string.c
+           src/libtomcrypt/src/pk/asn1/der_length_short_integer.c
+           src/libtomcrypt/src/pk/ecc/ltc_ecc_map.c
+           src/libtomcrypt/src/pk/ecc/ltc_ecc_mul2add.c
+           src/libtomcrypt/src/pk/ecc/ltc_ecc_mulmod.c
+           src/libtomcrypt/src/pk/ecc/ltc_ecc_points.c
+           src/libtomcrypt/src/pk/ecc/ltc_ecc_projective_add_point.c
+           src/libtomcrypt/src/pk/ecc/ltc_ecc_projective_dbl_point.c
+           src/libtomcrypt/src/pk/pkcs1/pkcs_1_mgf1.c
+           src/libtomcrypt/src/pk/pkcs1/pkcs_1_oaep_decode.c
+           src/libtomcrypt/src/pk/pkcs1/pkcs_1_pss_decode.c
+           src/libtomcrypt/src/pk/pkcs1/pkcs_1_pss_encode.c
+           src/libtomcrypt/src/pk/pkcs1/pkcs_1_v1_5_decode.c
+           src/libtomcrypt/src/pk/pkcs1/pkcs_1_v1_5_encode.c
+           src/libtomcrypt/src/pk/rsa/rsa_exptmod.c
+           src/libtomcrypt/src/pk/rsa/rsa_free.c
+           src/libtomcrypt/src/pk/rsa/rsa_import.c
+           src/libtomcrypt/src/pk/rsa/rsa_make_key.c
+           src/libtomcrypt/src/pk/rsa/rsa_sign_hash.c
+           src/libtomcrypt/src/pk/rsa/rsa_verify_hash.c
 )
 
 set(TOMMATH_FILES
@@ -251,6 +253,10 @@ set(ZLIB_BZIP2_FILES
            src/zlib/zutil.c
 )
 
+set(TEST_SRC_FILES
+           test/StormTest.cpp
+)
+
 add_definitions(-D_7ZIP_ST -DBZ_STRICT_ANSI)
 
 if(WIN32)
@@ -270,6 +276,10 @@ if(APPLE)
     set(SRC_ADDITIONAL_FILES ${TOMCRYPT_FILES} ${TOMMATH_FILES})
 endif()
 
+if(${CMAKE_SYSTEM_NAME} STREQUAL FreeBSD)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DO_LARGEFILE -Dstat64=stat -Dlstat64=lstat -Dlseek64=lseek -Doff64_t=off_t -Dfstat64=fstat -Dftruncate64=ftruncate")
+endif()
+
 if (${CMAKE_SYSTEM_NAME} STREQUAL Linux)
     message(STATUS "Using Linux port")
     option(WITH_LIBTOMCRYPT "Use system LibTomCrypt library" OFF)
@@ -281,8 +291,22 @@ if (${CMAKE_SYSTEM_NAME} STREQUAL Linux)
     endif()
 endif()
 
-add_library(StormLib STATIC ${SRC_FILES} ${SRC_ADDITIONAL_FILES})
+add_library(StormLib SHARED ${SRC_FILES} ${SRC_ADDITIONAL_FILES})
 target_link_libraries(StormLib ${LINK_LIBS})
+
+option(WITH_TEST "Compile Test application" OFF)
+if(WITH_TEST)
+    add_executable(storm_test ${TEST_SRC_FILES})
+    target_link_libraries(storm_test StormLib)
+endif()
+
+option(WITH_STATIC "Compile static linked library" OFF)
+if(WITH_STATIC)
+    add_library(storm_static STATIC ${SRC_FILES} ${SRC_ADDITIONAL_FILES})
+    target_link_libraries(storm_static ${LINK_LIBS})
+    set_target_properties(storm_static PROPERTIES OUTPUT_NAME StormLib)
+    install(TARGETS storm_static RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib FRAMEWORK DESTINATION /Library/Frameworks)
+endif()
 
 if(APPLE)
     set_target_properties(StormLib PROPERTIES FRAMEWORK true)
@@ -291,11 +315,45 @@ if(APPLE)
 endif()
 
 if(UNIX)
-    set_target_properties(StormLib PROPERTIES VERSION 9.0.0)
-    set_target_properties(StormLib PROPERTIES SOVERSION 9)
+    SET(VERSION_MAJOR "9")
+    SET(VERSION_MINOR "20")
+    SET(VERSION_PATCH "0")
+    SET(VERSION_STRING "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
+    set_target_properties(StormLib PROPERTIES VERSION "${VERSION_STRING}")
+    set_target_properties(StormLib PROPERTIES SOVERSION "${VERSION_MAJOR}")
 endif()
 
 # On Win32, build StormLib.dll since we don't want to clash with Storm.dll
 if(WIN32)
     set_target_properties(StormLib PROPERTIES OUTPUT_NAME StormLib)
 endif()
+
+install(TARGETS StormLib RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib FRAMEWORK DESTINATION /Library/Frameworks)
+install(FILES src/StormLib.h src/StormPort.h DESTINATION include)
+
+#CPack configurtion
+SET(CPACK_GENERATOR "DEB" "RPM")
+SET(CPACK_PACKAGE_NAME ${PROJECT_NAME})
+SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "MPQ manipulation library")
+SET(CPACK_PACKAGE_VENDOR "Ladislav Zezula")
+SET(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README")
+SET(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+SET(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
+SET(CPACK_PACKAGE_VERSION_MINOR "${VERSION_MINOR}")
+SET(CPACK_PACKAGE_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}")
+
+#DEB configuration
+SET(CPACK_DEBIAN_PACKAGE_SECTION "libs")
+SET(CPACK_DEBIAN_PACKAGE_HOMEPAGE "http://www.zezula.net/en/mpq/stormlib.html")
+SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "imbacen@gmail.com")
+SET(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "amd64")
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "zlib1g,bzip2")
+
+#RPM configuration
+SET(CPACK_RPM_PACKAGE_RELEASE 1)
+SET(CPACK_RPM_PACKAGE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+SET(CPACK_RPM_PACKAGE_GROUP "${PROJECT_NAME}")
+SET(CPACK_RPM_PACKAGE_URL "http://www.zezula.net/en/mpq/stormlib.html")
+SET(CPACK_RPM_PACKAGE_REQUIRES "zlib,bzip2")
+
+INCLUDE(CPack)
