@@ -1,0 +1,5 @@
+Stormlib was modified from the standard library in commit:
+
+https://github.com/mangos/mangosDeps/commit/1dc0604673220b3e785cef36ba93633d0495ba64
+
+These changes will need to be reapplied should a new version of stormlib be added in the future
