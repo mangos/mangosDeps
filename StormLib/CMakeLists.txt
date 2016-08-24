@@ -291,7 +291,7 @@ if (${CMAKE_SYSTEM_NAME} STREQUAL Linux)
     endif()
 endif()
 
-add_library(StormLib STATIC ${SRC_FILES} ${SRC_ADDITIONAL_FILES})
+add_library(StormLib SHARED ${SRC_FILES} ${SRC_ADDITIONAL_FILES})
 target_link_libraries(StormLib ${LINK_LIBS})
 
 # option(WITH_TEST "Compile Test application" OFF)
