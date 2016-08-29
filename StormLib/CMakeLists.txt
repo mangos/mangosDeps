@@ -1,5 +1,4 @@
-project(StormLib)
-cmake_minimum_required(VERSION 2.6)
+set(LIBRARY_NAME StormLib)
 
 set(SRC_FILES
            src/adpcm/adpcm.cpp
@@ -253,77 +252,23 @@ set(ZLIB_BZIP2_FILES
            src/zlib/zutil.c
 )
 
-set(TEST_SRC_FILES
-           test/StormTest.cpp
-)
-
 add_definitions(-D_7ZIP_ST -DBZ_STRICT_ANSI)
+set(SRC_ADDITIONAL_FILES ${TOMCRYPT_FILES} ${TOMMATH_FILES})
 
 if(WIN32)
+    message(STATUS "Building StormLib for Windows")
     if(MSVC)
-        message(STATUS "Using MSVC")
-        add_definitions(-D_7ZIP_ST -DWIN32)
-    else()
-        message(STATUS "Using mingw")
+        add_definitions(-DWIN32)
     endif()
-    set(SRC_ADDITIONAL_FILES ${ZLIB_BZIP2_FILES} ${TOMCRYPT_FILES} ${TOMMATH_FILES})
+    set(SRC_ADDITIONAL_FILES ${ZLIB_BZIP2_FILES} ${SRC_ADDITIONAL_FILES})
     set(LINK_LIBS wininet)
-endif()
-
-if(APPLE)
-    message(STATUS "Using Mac OS X port")
+else()
+    message(STATUS "Building StormLib for Unix")
     set(LINK_LIBS z bz2)
-    set(SRC_ADDITIONAL_FILES ${TOMCRYPT_FILES} ${TOMMATH_FILES})
-endif()
-
-if(${CMAKE_SYSTEM_NAME} STREQUAL FreeBSD)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DO_LARGEFILE -Dstat64=stat -Dlstat64=lstat -Dlseek64=lseek -Doff64_t=off_t -Dfstat64=fstat -Dftruncate64=ftruncate")
-endif()
-
-if (${CMAKE_SYSTEM_NAME} STREQUAL Linux)
-    message(STATUS "Using Linux port")
-    option(WITH_LIBTOMCRYPT "Use system LibTomCrypt library" OFF)
-    if(WITH_LIBTOMCRYPT)
-        set(LINK_LIBS z bz2 tomcrypt)
-    else()
-        set(LINK_LIBS z bz2)
-        set(SRC_ADDITIONAL_FILES ${TOMCRYPT_FILES} ${TOMMATH_FILES})
+    if(${CMAKE_SYSTEM_NAME} STREQUAL FreeBSD)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DO_LARGEFILE -Dstat64=stat -Dlstat64=lstat -Dlseek64=lseek -Doff64_t=off_t -Dfstat64=fstat -Dftruncate64=ftruncate")
     endif()
 endif()
 
-add_library(StormLib STATIC ${SRC_FILES} ${SRC_ADDITIONAL_FILES})
-target_link_libraries(StormLib ${LINK_LIBS})
-
-# option(WITH_TEST "Compile Test application" OFF)
-# if(WITH_TEST)
-#      add_executable(storm_test ${TEST_SRC_FILES})
-#      target_link_libraries(storm_test storm)
-# endif()
-
-option(WITH_STATIC "Compile static linked library" OFF)
-if(WITH_STATIC)
-    add_library(storm_static STATIC ${SRC_FILES} ${SRC_ADDITIONAL_FILES})
-    target_link_libraries(storm_static ${LINK_LIBS})
-    set_target_properties(storm_static PROPERTIES OUTPUT_NAME StormLib)
-    install(TARGETS storm_static RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib FRAMEWORK DESTINATION /Library/Frameworks)
-endif()
-
-if(APPLE)
-    set_target_properties(StormLib PROPERTIES FRAMEWORK true)
-    set_target_properties(StormLib PROPERTIES PUBLIC_HEADER "src/StormLib.h src/StormPort.h")
-    set_target_properties(StormLib PROPERTIES LINK_FLAGS "-framework Carbon")
-endif()
-
-if(UNIX)
-    SET(VERSION_MAJOR "9")
-    SET(VERSION_MINOR "20")
-    SET(VERSION_PATCH "0")
-    SET(VERSION_STRING "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
-    set_target_properties(StormLib PROPERTIES VERSION "${VERSION_STRING}")
-    set_target_properties(StormLib PROPERTIES SOVERSION "${VERSION_MAJOR}")
-endif()
-
-# On Win32, build StormLib.dll since we don't want to clash with Storm.dll
-if(WIN32)
-    set_target_properties(StormLib PROPERTIES OUTPUT_NAME StormLib)
-endif()
+add_library(${LIBRARY_NAME} STATIC ${SRC_FILES} ${SRC_ADDITIONAL_FILES})
+target_link_libraries(${LIBRARY_NAME} ${LINK_LIBS})
