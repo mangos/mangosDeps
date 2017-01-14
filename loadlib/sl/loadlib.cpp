@@ -30,7 +30,7 @@ bool OpenNewestFile(char const* filename, HANDLE* fileHandlerPtr)
     for (ArchiveSet::const_reverse_iterator i = gOpenArchives.rbegin(); i != gOpenArchives.rend(); ++i)
     {
         // always prefer get updated file version
-		if (SFileOpenFileEx(*i, filename, SFILE_OPEN_FROM_MPQ, fileHandlerPtr))
+        if (SFileOpenFileEx(*i, filename, SFILE_OPEN_FROM_MPQ, fileHandlerPtr))
             return true;
     }
 
@@ -42,7 +42,7 @@ bool ExtractFile(char const* mpq_name, std::string const& filename)
     for (ArchiveSet::const_reverse_iterator i = gOpenArchives.rbegin(); i != gOpenArchives.rend(); ++i)
     {
         HANDLE fileHandle;
-		if (!SFileOpenFileEx(*i, mpq_name, SFILE_OPEN_FROM_MPQ, &fileHandle))
+        if (!SFileOpenFileEx(*i, mpq_name, SFILE_OPEN_FROM_MPQ, &fileHandle))
             continue;
 
         if (SFileGetFileSize(fileHandle, NULL) == 0)              // some files removed in next updates and its reported  size 0
@@ -53,7 +53,7 @@ bool ExtractFile(char const* mpq_name, std::string const& filename)
 
         SFileCloseFile(fileHandle);
 
-		if (!SFileExtractFile(*i, mpq_name, filename.c_str(), SFILE_OPEN_FROM_MPQ))
+        if (!SFileExtractFile(*i, mpq_name, filename.c_str(), SFILE_OPEN_FROM_MPQ))
         {
             printf("Can't extract file: %s\n", mpq_name);
             return false;
