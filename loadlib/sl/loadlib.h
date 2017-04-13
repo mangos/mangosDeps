@@ -26,6 +26,7 @@
 #include <string>
 #include "StormLib.h"
 #include <deque>
+#include <map>
 
 #ifdef WIN32
 typedef __int64            int64;
@@ -64,6 +65,12 @@ void CloseArchives();
 
 #define FILE_FORMAT_VERSION    18
 
+union u_map_fcc
+{
+    char   fcc_txt[4];
+    uint32 fcc;
+};
+
 //
 // File version chunk
 //
@@ -92,5 +99,42 @@ class FileLoader
         ~FileLoader();
         bool loadFile(char* filename, bool log = true);
         virtual void free();
+};
+
+/************************************** 
+    Required for MoP data extraction
+    ================================
+ **************************************/
+class FileChunk
+{
+public:
+    ~FileChunk();
+
+    uint8* data;
+    uint32 size;
+
+    template<class T>
+    T* As() { return (T*)data; }
+    void parseSubChunks();
+    std::multimap<std::string, FileChunk*> subchunks;
+    FileChunk* GetSubChunk(std::string const& name);
+};
+
+class ChunkedFile{
+public:
+    uint8  *data;
+    uint32  data_size;
+    uint8 *GetData()     {return data;}
+    uint32 GetDataSize() {return data_size;}
+
+    ChunkedFile();
+    virtual ~ChunkedFile();
+    bool prepareLoadedData();
+    bool loadFile(HANDLE mpq, char *filename, bool log = true);
+    void free();
+
+    void parseChunks();
+    std::multimap<std::string, FileChunk*> chunks;
+    FileChunk* GetChunk(std::string const& name);
 };
 #endif
