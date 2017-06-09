@@ -453,10 +453,9 @@ void der_sequence_free(ltc_asn1_list *in);
 
 /* BOOLEAN */
 int der_length_boolean(unsigned long *outlen);
-int der_encode_boolean(int in, 
-                       unsigned char *out, unsigned long *outlen);
-int der_decode_boolean(const unsigned char *in, unsigned long inlen,
-                                       int *out);               
+int der_encode_boolean(int in, unsigned char *out, unsigned long *outlen);
+int der_decode_boolean(const unsigned char *in, unsigned long inlen, int *out);
+
 /* INTEGER */
 int der_encode_integer(void *num, unsigned char *out, unsigned long *outlen);
 int der_decode_integer(const unsigned char *in, unsigned long inlen, void *num);
