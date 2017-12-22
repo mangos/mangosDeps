@@ -4,4 +4,8 @@
 
 #include "ace/config-macosx-mavericks.h"
 
+#undef ACE_LACKS_CLOCKID_T
+#undef ACE_LACKS_CLOCK_MONOTONIC
+#undef ACE_LACKS_CLOCK_REALTIME
+
 #endif // ACE_CONFIG_MACOSX_YOSEMITE_H
