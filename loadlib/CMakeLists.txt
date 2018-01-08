@@ -20,6 +20,7 @@ if(USE_STORMLIB)
         ${CMAKE_CURRENT_SOURCE_DIR}/sl
     )
     add_library(loadlib sl/loadlib.cpp sl/adt.cpp sl/wdt.cpp sl/mpq.cpp)
+    target_link_libraries(loadlib storm)
 else()
     include_directories(
         ${CMAKE_SOURCE_DIR}/dep/libmpq
