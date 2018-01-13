@@ -1,9 +1,11 @@
-[![](https://www.getmangos.eu/images/primus/blue/misc/logo.png)](http://www.getmangos.eu)&nbsp;
-
-[![](https://github.com/mangoszero/server/raw/master/icons/FORUM.gif)](https://www.getmangos.eu/forum.php)
-[![](https://github.com/mangoszero/server/raw/master/icons/WIKI.gif)](http://github.com/mangoswiki/wiki/wiki)
-[![](https://github.com/mangoszero/server/raw/master/icons/TOOLS.gif)](http://github.com/mangostools)
-[![](https://github.com/mangoszero/server/raw/master/icons/TRACKER.gif)](https://www.getmangos.eu/project.php)
+<table border=0 cellpadding=0 cellspacing=0 valign='top'><tr>
+<td><a href='https://www.getmangos.eu' target='getmangos.eu'><img src='https://www.getmangos.eu/!assets_mangos/logo.png' border=0></a></td>
+<td valign='top'>
+<a href='https://www.getmangos.eu/forums/' target='getmangos.forum'><img src='/icons/FORUM.gif' border=0></a>
+<a href='https://www.getmangos.eu/wiki' target='getmangos.wiki'><img src='/icons/WIKI.gif' border=0></a>
+<a href='https://www.getmangos.eu/github-activity/' target='getmangos.activity'><img src='/icons/ACTIVITY.gif' border=0></a>
+<a href='https://www.getmangos.eu/bug-tracker/mangos-zero/' target='getmangos.tracker'><img src='/icons/TRACKER.gif' border=0></a>
+</td></tr></table>
 
 Mangos Dependencies
 ------------
