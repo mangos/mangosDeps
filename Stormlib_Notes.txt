@@ -1,3 +1,0 @@
-As of version 9.21, Stormlib has a broken CMakeLists.txt and StormLib.h which adversely impacts the MaNGOS build,
-both on Windows and *NIX
-For now, we are using a modified form of those.

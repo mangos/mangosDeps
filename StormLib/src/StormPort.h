@@ -20,7 +20,7 @@
 /* 12.11.03  1.02  Dan  Macintosh compatibility                              */
 /* 24.07.04  1.03  Sam  Mac OS X compatibility                               */
 /* 22.11.06  1.04  Sam  Mac OS X compatibility (for StormLib 6.0)            */
-/* 31.12.06  1.05  XPinguin  Full GNU/Linux compatibility                    */
+/* 31.12.06  1.05  XPinguin  Full GNU/Linux compatibility		             */
 /* 17.10.12  1.05  Lad  Moved error codes so they don't overlap with errno.h */
 /*****************************************************************************/
 
@@ -148,6 +148,10 @@
   typedef LONG         * PLONG;
   typedef DWORD        * LPDWORD;
   typedef BYTE         * LPBYTE;
+  typedef const char   * LPCTSTR;
+  typedef const char   * LPCSTR;
+  typedef char         * LPTSTR;
+  typedef char         * LPSTR;
 
   #ifdef PLATFORM_32BIT
     #define _LZMA_UINT32_IS_ULONG
@@ -158,6 +162,10 @@
     #define MAX_PATH 1024
   #endif
 
+  #ifndef _countof
+    #define _countof(x)  (sizeof(x) / sizeof(x[0]))
+  #endif
+  
   #define WINAPI 
 
   #define FILE_BEGIN    SEEK_SET
@@ -175,6 +183,7 @@
   #define _tprintf  printf
   #define _stprintf sprintf
   #define _tremove  remove
+  #define _tmain    main
 
   #define _stricmp  strcasecmp
   #define _strnicmp strncasecmp

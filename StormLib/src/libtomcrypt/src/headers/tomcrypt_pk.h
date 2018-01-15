@@ -202,8 +202,8 @@ typedef struct {
     /** Index into the ltc_ecc_sets[] for the parameters of this curve; if -1, then this key is using user supplied curve in dp */
     int idx;
 
-    /** pointer to domain parameters; either points to NIST curves (identified by idx >= 0) or user supplied curve */
-    const ltc_ecc_set_type *dp;
+	/** pointer to domain parameters; either points to NIST curves (identified by idx >= 0) or user supplied curve */
+	const ltc_ecc_set_type *dp;
 
     /** The public key */
     ecc_point pubkey;
@@ -453,9 +453,10 @@ void der_sequence_free(ltc_asn1_list *in);
 
 /* BOOLEAN */
 int der_length_boolean(unsigned long *outlen);
-int der_encode_boolean(int in, unsigned char *out, unsigned long *outlen);
-int der_decode_boolean(const unsigned char *in, unsigned long inlen, int *out);
-
+int der_encode_boolean(int in, 
+                       unsigned char *out, unsigned long *outlen);
+int der_decode_boolean(const unsigned char *in, unsigned long inlen,
+                                       int *out);		       
 /* INTEGER */
 int der_encode_integer(void *num, unsigned char *out, unsigned long *outlen);
 int der_decode_integer(const unsigned char *in, unsigned long inlen, void *num);
