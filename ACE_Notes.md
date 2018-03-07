@@ -18,3 +18,8 @@ To get Travis CI working with `macos10.12` and `xcode8.3`, the following changes
 +#undef ACE_LACKS_CLOCK_MONOTONIC
 +#undef ACE_LACKS_CLOCK_REALTIME
 ```
+
+March 7th, 2018 - To build ACE as static library, one has to add the following line to the global CMakeLists.txt
+```
+add_definitions(-DACE_AS_STATIC_LIBS)
+```

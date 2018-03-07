@@ -330,20 +330,8 @@ set(ace_STAT_SRCS
 
 include_directories(${CMAKE_SOURCE_DIR}/dep/acelite)
 
-add_definitions(-DACE_BUILD_DLL)
-
-add_library(ace SHARED ${ace_STAT_SRCS})
+add_library(ace STATIC ${ace_STAT_SRCS})
 
 if (MINGW)
   target_link_libraries(ace ws2_32 iphlpapi netapi32 mswsock)
-endif()
-
-install(
-    TARGETS ace
-    RUNTIME DESTINATION "${BIN_DIR}"
-    LIBRARY DESTINATION "${LIBS_DIR}"
-)
-
-if(WIN32)
-  install(FILES "${CMAKE_CURRENT_BINARY_DIR}/\${BUILD_TYPE}/ace.pdb" DESTINATION "${BIN_DIR}" CONFIGURATIONS Debug)
 endif()
