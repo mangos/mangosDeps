@@ -26,16 +26,20 @@
 
 #-----------------------------------------------------------------------------
 # Define the Detour library
-file(GLOB sources Source/*.cpp)
-file(GLOB headers Include/*.h)
 
-set(Detour_LIB_SRCS ${sources} ${headers})
-
-include_directories(
-    "${CMAKE_CURRENT_SOURCE_DIR}/Include"
+add_library(detour
+    Source/DetourAlloc.cpp
+    Source/DetourCommon.cpp
+    Source/DetourNavMeshBuilder.cpp
+    Source/DetourNavMesh.cpp
+    Source/DetourNavMeshQuery.cpp
+    Source/DetourNode.cpp
 )
 
-#-----------------------------------------------------------------------------
-# Build the Detour library
-#add_library(detour STATIC ${Detour_LIB_SRCS})
-add_subdirectory(Source)
+target_include_directories(detour
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Include
+)
+
+target_compile_definitions(detour
+    PUBLIC DT_POLYREF64
+)

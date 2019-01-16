@@ -14,9 +14,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-if(NOT ACE_USE_EXTERNAL)
-  add_subdirectory(acelite)
-endif()
+add_subdirectory(acelite)
+add_subdirectory(recastnavigation)
+add_subdirectory(g3dlite)
+add_subdirectory(loadlib)
+add_subdirectory(utf8cpp)
 
 if(SOAP)
     add_subdirectory(gsoap)
@@ -32,8 +34,11 @@ else()
     add_subdirectory(libmpq)
 endif()
 
-add_subdirectory(recastnavigation)
-add_subdirectory(g3dlite)
-add_subdirectory(zlib)
-add_subdirectory(loadlib)
-add_subdirectory(bzip2)
+
+if (NOT TARGET "ZLIB::ZLIB")
+    add_subdirectory(zlib)
+endif()
+
+if (NOT TARGET "BZip2::BZip2")
+    add_subdirectory(bzip2)
+endif()

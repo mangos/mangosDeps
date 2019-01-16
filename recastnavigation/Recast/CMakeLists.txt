@@ -26,15 +26,19 @@
 
 #-----------------------------------------------------------------------------
 # Define the Recast library
-file(GLOB sources Source/*.cpp)
-file(GLOB headers Include/*.h)
-
-set(Recast_LIB_SRCS ${sources} ${headers})
-
-include_directories(
-    "${CMAKE_CURRENT_SOURCE_DIR}/Include"
+add_library(recast
+    Source/Recast.cpp
+    Source/RecastAlloc.cpp
+    Source/RecastArea.cpp
+    Source/RecastContour.cpp
+    Source/RecastFilter.cpp
+    Source/RecastLayers.cpp
+    Source/RecastMesh.cpp
+    Source/RecastMeshDetail.cpp
+    Source/RecastRasterization.cpp
+    Source/RecastRegion.cpp
 )
 
-#-----------------------------------------------------------------------------
-# Build the Recast library
-add_library(recast STATIC ${Recast_LIB_SRCS})
+target_include_directories(recast
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Include
+)

@@ -23,3 +23,8 @@ March 7th, 2018 - To build ACE as static library, one has to add the following l
 ```
 add_definitions(-DACE_AS_STATIC_LIBS)
 ```
+
+January, 16th, 2019
+  - ACE is built as static library by default.
+  - Fixed ACE_HAS_CPP11/14 defines for compatibility with other compilers.
+```

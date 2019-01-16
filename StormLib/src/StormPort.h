@@ -115,6 +115,9 @@
   #include <assert.h>
   #include <errno.h>
 
+  #ifdef __FreeBSD__
+  #    define PLATFORM_FREEBSD
+  #endif
   #define PLATFORM_LITTLE_ENDIAN
   #define PLATFORM_LINUX
   #define PLATFORM_DEFINED
@@ -193,7 +196,7 @@
 #endif // !PLATFORM_WINDOWS
 
 // 64-bit calls are supplied by "normal" calls on Mac
-#if defined(PLATFORM_MAC)
+#if defined(PLATFORM_MAC) || defined(PLATFORM_FREEBSD)
   #define stat64  stat
   #define fstat64 fstat
   #define lseek64 lseek
@@ -201,7 +204,11 @@
   #define off64_t off_t
   #define O_LARGEFILE 0
 #endif
-                                                
+
+#if defined(PLATFORM_FREEBSD)
+  #define lstat64 lstat
+#endif
+
 // Platform-specific error codes for UNIX-based platforms
 #if defined(PLATFORM_MAC) || defined(PLATFORM_LINUX)
   #define ERROR_SUCCESS                  0

@@ -36,10 +36,14 @@
 
 #if (__GNUC__ >= 5 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 7))
 # if __cplusplus > 199711L
-#  define ACE_HAS_CPP11
+#  ifndef ACE_HAS_CPP11
+#   define ACE_HAS_CPP11
+#  endif
 # endif
 # if __cplusplus > 201103L
-#  define ACE_HAS_CPP14
+#  ifndef ACE_HAS_CPP14
+#   define ACE_HAS_CPP14
+#  endif
 # endif
 #endif
 

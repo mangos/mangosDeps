@@ -96,7 +96,9 @@
 // it runs with GCC 4.7 or higher emulation mode
 #if (__INTEL_COMPILER > 1400) && defined (__INTEL_CXX11_MODE__)
 # if (__GNUC__ >= 5 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 7))
-#  define ACE_HAS_CPP11
+#  ifndef ACE_HAS_CPP11
+#   define ACE_HAS_CPP11
+#  endif
 # endif
 #endif
 
@@ -104,7 +106,9 @@
 // or higher emulation mode
 #if (__INTEL_COMPILER == 1400) && (__INTEL_COMPILER_UPDATE >= 2) && defined (__INTEL_CXX11_MODE__)
 # if (__GNUC__ >= 5 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 7))
-#  define ACE_HAS_CPP11
+#  ifndef ACE_HAS_CPP11
+#   define ACE_HAS_CPP11
+#  endif
 # endif
 #endif
 
