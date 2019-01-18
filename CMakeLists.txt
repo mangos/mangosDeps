@@ -34,7 +34,6 @@ else()
     add_subdirectory(libmpq)
 endif()
 
-
 if (NOT TARGET "ZLIB::ZLIB")
     add_subdirectory(zlib)
 endif()
@@ -42,3 +41,4 @@ endif()
 if (NOT TARGET "BZip2::BZip2")
     add_subdirectory(bzip2)
 endif()
+
