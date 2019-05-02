@@ -16,12 +16,12 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-#project(ACE VERSION 6.3.1)
+project(ACE VERSION 6.5.5)
 
-add_library(ace STATIC
+set(ACE_SOURCES
   ace/ACE.cpp
-  ace/ACE_crc32.cpp
   ace/ACE_crc_ccitt.cpp
+  ace/ACE_crc32.cpp
   ace/ace_wchar.cpp
   ace/Activation_Queue.cpp
   ace/Active_Map_Manager.cpp
@@ -46,10 +46,9 @@ add_library(ace STATIC
   ace/Basic_Types.cpp
   ace/Capabilities.cpp
   ace/CDR_Base.cpp
-  ace/CDR_Size.cpp
   ace/CDR_Stream.cpp
+  ace/CDR_Size.cpp
   ace/Cleanup.cpp
-  ace/Codecs.cpp
   ace/Codeset_IBM1047.cpp
   ace/Codeset_Registry.cpp
   ace/Codeset_Registry_db.cpp
@@ -66,18 +65,13 @@ add_library(ace STATIC
   ace/DEV_Addr.cpp
   ace/DEV_Connector.cpp
   ace/DEV_IO.cpp
+  ace/DLL_Manager.cpp
   ace/Dev_Poll_Reactor.cpp
   ace/Dirent.cpp
   ace/Dirent_Selector.cpp
-  ace/DLL.cpp
-  ace/DLL_Manager.cpp
   ace/Dump.cpp
   ace/Dynamic.cpp
   ace/Dynamic_Message_Strategy.cpp
-  ace/Dynamic_Service_Base.cpp
-  ace/Dynamic_Service_Dependency.cpp
-  ace/Encoding_Converter.cpp
-  ace/Encoding_Converter_Factory.cpp
   ace/Event_Base.cpp
   ace/Event_Handler.cpp
   ace/Event_Handler_Handle_Timeout_Upcall.cpp
@@ -91,7 +85,6 @@ add_library(ace STATIC
   ace/FILE_Connector.cpp
   ace/FILE_IO.cpp
   ace/File_Lock.cpp
-  ace/Filecache.cpp
   ace/Flag_Manip.cpp
   ace/Framework_Component.cpp
   ace/Functor.cpp
@@ -104,17 +97,16 @@ add_library(ace STATIC
   ace/ICMP_Socket.cpp
   ace/INET_Addr.cpp
   ace/Init_ACE.cpp
-  ace/IO_Cntl_Msg.cpp
   ace/IO_SAP.cpp
+  ace/IO_Cntl_Msg.cpp
   ace/IOStream.cpp
   ace/IPC_SAP.cpp
   ace/Lib_Find.cpp
   ace/Local_Memory_Pool.cpp
-  ace/Local_Name_Space.cpp
-  ace/Local_Tokens.cpp
   ace/Lock.cpp
   ace/Log_Category.cpp
   ace/Log_Msg.cpp
+  ace/Log_Msg_Android_Logcat.cpp
   ace/Log_Msg_Backend.cpp
   ace/Log_Msg_Callback.cpp
   ace/Log_Msg_IPC.cpp
@@ -143,25 +135,21 @@ add_library(ace STATIC
   ace/Message_Queue_Vx.cpp
   ace/Method_Request.cpp
   ace/MMAP_Memory_Pool.cpp
+  ace/Msg_WFMO_Reactor.cpp
   ace/Monitor_Admin.cpp
   ace/Monitor_Admin_Manager.cpp
   ace/Monitor_Base.cpp
-  ace/Monitor_Control_Action.cpp
-  ace/Monitor_Control_Types.cpp
   ace/Monitor_Point_Registry.cpp
   ace/Monitor_Size.cpp
+  ace/Monitor_Control_Types.cpp
+  ace/Monitor_Control_Action.cpp
   ace/Monotonic_Time_Policy.cpp
-  ace/Msg_WFMO_Reactor.cpp
   ace/Multihomed_INET_Addr.cpp
   ace/Mutex.cpp
-  ace/Name_Proxy.cpp
-  ace/Name_Request_Reply.cpp
-  ace/Name_Space.cpp
-  ace/Naming_Context.cpp
   ace/Netlink_Addr.cpp
-  ace/Notification_Queue.cpp
   ace/Notification_Strategy.cpp
-  ace/NT_Service.cpp
+  ace/Notification_Queue.cpp
+  ace/Null_Mutex.cpp
   ace/Obchunk.cpp
   ace/Object_Manager.cpp
   ace/Object_Manager_Base.cpp
@@ -171,6 +159,7 @@ add_library(ace STATIC
   ace/OS_main.cpp
   ace/OS_NS_arpa_inet.cpp
   ace/OS_NS_ctype.cpp
+  ace/OS_NS_devctl.cpp
   ace/OS_NS_dirent.cpp
   ace/OS_NS_dlfcn.cpp
   ace/OS_NS_errno.cpp
@@ -230,9 +219,6 @@ add_library(ace STATIC
   ace/Recursive_Thread_Mutex.cpp
   ace/Recyclable.cpp
   ace/Registry.cpp
-  ace/Registry_Name_Space.cpp
-  ace/Remote_Name_Space.cpp
-  ace/Remote_Tokens.cpp
   ace/Rtems_init.c
   ace/RW_Mutex.cpp
   ace/RW_Process_Mutex.cpp
@@ -242,17 +228,10 @@ add_library(ace STATIC
   ace/Sched_Params.cpp
   ace/Select_Reactor_Base.cpp
   ace/Semaphore.cpp
-  ace/Service_Config.cpp
-  ace/Service_Gestalt.cpp
-  ace/Service_Manager.cpp
-  ace/Service_Object.cpp
-  ace/Service_Repository.cpp
-  ace/Service_Types.cpp
   ace/Shared_Memory.cpp
   ace/Shared_Memory_MM.cpp
   ace/Shared_Memory_Pool.cpp
   ace/Shared_Memory_SV.cpp
-  ace/Shared_Object.cpp
   ace/Sig_Adapter.cpp
   ace/Sig_Handler.cpp
   ace/Signal.cpp
@@ -285,8 +264,6 @@ add_library(ace STATIC
   ace/SV_Semaphore_Complex.cpp
   ace/SV_Semaphore_Simple.cpp
   ace/SV_Shared_Memory.cpp
-  ace/Svc_Conf_Lexer.cpp
-  ace/Svc_Conf_y.cpp
   ace/Synch_Options.cpp
   ace/System_Time.cpp
   ace/Task.cpp
@@ -307,10 +284,6 @@ add_library(ace STATIC
   ace/TLI_Connector.cpp
   ace/TLI_Stream.cpp
   ace/Token.cpp
-  ace/Token_Collection.cpp
-  ace/Token_Invariants.cpp
-  ace/Token_Manager.cpp
-  ace/Token_Request_Reply.cpp
   ace/TP_Reactor.cpp
   ace/Trace.cpp
   ace/TSS_Adapter.cpp
@@ -319,23 +292,21 @@ add_library(ace STATIC
   ace/UPIPE_Acceptor.cpp
   ace/UPIPE_Connector.cpp
   ace/UPIPE_Stream.cpp
-  ace/UTF16_Encoding_Converter.cpp
-  ace/UTF32_Encoding_Converter.cpp
-  ace/UTF8_Encoding_Converter.cpp
-  ace/UUID.cpp
   ace/WFMO_Reactor.cpp
   ace/WIN32_Asynch_IO.cpp
   ace/WIN32_Proactor.cpp
-  ace/XML_Svc_Conf.cpp
   ace/XTI_ATM_Mcast.cpp
+)
+
+add_library(ace STATIC
+    ${ACE_SOURCES}
 )
 
 target_include_directories(ace PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_compile_definitions(ace
     PUBLIC
-        ACE_AS_STATIC_LIB
-        ACE_HAS_CPP11
+        ACE_AS_STATIC_LIBS
+        ACE_MT_SAFE
+        $<$<PLATFORM_ID:FreeBSD>:_WANT_SEMUN>
 )
-
-set_target_properties(ace PROPERTIES FOLDER "dep")

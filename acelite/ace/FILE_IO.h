@@ -4,9 +4,7 @@
 /**
  *  @file    FILE_IO.h
  *
- *  $Id: FILE_IO.h 92298 2010-10-21 11:15:17Z johnnyw $
- *
- *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
+ *  @author Douglas C. Schmidt <d.schmidt@vanderbilt.edu>
  */
 //=============================================================================
 

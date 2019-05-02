@@ -7,8 +7,6 @@
  *
  *  Internet address family
  *
- *  $Id: os_in.h 97259 2013-08-09 08:14:31Z johnnyw $
- *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.
  */
@@ -95,7 +93,7 @@ extern "C"
   };
 # endif /* ACE_LACKS_IP_MREQ */
 
-#if !defined (IPPORT_RESERVED)
+#if !defined (ACE_HAS_IPPORT_RESERVED) && !defined (IPPORT_RESERVED)
 #  define IPPORT_RESERVED       1024
 #endif /* !IPPORT_RESERVED */
 

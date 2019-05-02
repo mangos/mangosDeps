@@ -4,9 +4,7 @@
 /**
  *  @file    LSOCK_Connector.h
  *
- *  $Id: LSOCK_Connector.h 80826 2008-03-04 14:51:23Z wotte $
- *
- *  @author Doug Schmidt <schmidt@cs.wustl.edu>
+ *  @author Doug Schmidt <d.schmidt@vanderbilt.edu>
  */
 //=============================================================================
 

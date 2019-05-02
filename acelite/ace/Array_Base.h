@@ -4,9 +4,7 @@
 /**
  *  @file Array_Base.h
  *
- *  $Id: Array_Base.h 93359 2011-02-11 11:33:12Z mcorino $
- *
- *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
+ *  @author Douglas C. Schmidt <d.schmidt@vanderbilt.edu>
  */
 //=============================================================================
 

@@ -4,7 +4,7 @@
 # Please see the included DOCS/LICENSE.md for more information
 #
 
-#project(lualib VERSION 5.2.3)
+project(lualib VERSION 5.2.3)
 
 add_library(lualib STATIC
     lapi.c
@@ -68,5 +68,3 @@ add_library(lualib STATIC
 target_include_directories(lualib
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 )
-
-set_target_properties(lualib PROPERTIES FOLDER "dep")

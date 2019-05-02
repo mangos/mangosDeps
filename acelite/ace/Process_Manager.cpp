@@ -1,5 +1,3 @@
-// $Id: Process_Manager.cpp 96985 2013-04-11 15:50:32Z huangh $
-
 // Process_Manager.cpp
 #include "ace/Process_Manager.h"
 
@@ -62,6 +60,8 @@ bool ACE_Process_Manager::delete_instance_ = false;
 ACE_Process_Manager::Process_Descriptor::~Process_Descriptor (void)
 {
 }
+
+ACE_ALLOC_HOOK_DEFINE(ACE_Process_Manager::Process_Descriptor)
 
 void
 ACE_Process_Manager::Process_Descriptor::dump (void) const

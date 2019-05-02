@@ -4,9 +4,7 @@
 /**
  *  @file   Default_Constants.h
  *
- *  $Id: Default_Constants.h 95517 2012-01-30 10:05:01Z sma $
- *
- *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
+ *  @author Douglas C. Schmidt <d.schmidt@vanderbilt.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>
  *  @author and a cast of thousands...
  *
@@ -78,11 +76,11 @@
 # endif /* ACE_DEFAULT_TIMEOUT */
 
 # if !defined (ACE_DEFAULT_BACKLOG)
-#   define ACE_DEFAULT_BACKLOG 128
+#   define ACE_DEFAULT_BACKLOG 5
 # endif /* ACE_DEFAULT_BACKLOG */
 
 # if !defined (ACE_DEFAULT_ASYNCH_BACKLOG)
-#   define ACE_DEFAULT_ASYNCH_BACKLOG 128
+#   define ACE_DEFAULT_ASYNCH_BACKLOG 5
 # endif /* ACE_DEFAULT_ASYNCH_BACKLOG */
 
 # if !defined (ACE_DEFAULT_THREADS)

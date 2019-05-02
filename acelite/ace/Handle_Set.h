@@ -4,9 +4,7 @@
 /**
  *  @file    Handle_Set.h
  *
- *  $Id: Handle_Set.h 97484 2013-12-20 08:09:58Z johnnyw $
- *
- *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
+ *  @author Douglas C. Schmidt <d.schmidt@vanderbilt.edu>
  */
 //=============================================================================
 

@@ -4,9 +4,7 @@
 /**
  *  @file   OS_main.h
  *
- *  $Id: OS_main.h 85579 2009-06-08 18:46:54Z mitza $
- *
- *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
+ *  @author Douglas C. Schmidt <d.schmidt@vanderbilt.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>
  *  @author and a cast of thousands...
  *

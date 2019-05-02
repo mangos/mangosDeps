@@ -80,5 +80,3 @@ target_link_libraries(libmpq
         ZLIB::ZLIB
         BZip2::BZip2
 )
-
-set_target_properties(libmpq PROPERTIES FOLDER "dep")

@@ -19,6 +19,7 @@ add_subdirectory(recastnavigation)
 add_subdirectory(g3dlite)
 add_subdirectory(loadlib)
 add_subdirectory(utf8cpp)
+add_subdirectory(tomlib)
 
 if(SOAP)
     add_subdirectory(gsoap)

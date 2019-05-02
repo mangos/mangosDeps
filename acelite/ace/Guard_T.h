@@ -4,11 +4,9 @@
 /**
  *  @file    Guard_T.h
  *
- *  $Id: Guard_T.h 97875 2014-09-08 12:22:43Z johnnyw $
- *
  *   Moved from Synch.h.
  *
- *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
+ *  @author Douglas C. Schmidt <d.schmidt@vanderbilt.edu>
  */
 //==========================================================================
 
@@ -273,8 +271,8 @@ public:
   /// Dump the state of an object.
   void dump (void) const;
 
-  // ACE_ALLOC_HOOK_DECLARE;
-  // Declare the dynamic allocation hooks.
+  /// Declare the dynamic allocation hooks.
+  ACE_ALLOC_HOOK_DECLARE;
 
 protected:
   /// Helper, meant for subclass only.

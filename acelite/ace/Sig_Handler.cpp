@@ -1,5 +1,3 @@
-// $Id: Sig_Handler.cpp 97246 2013-08-07 07:10:20Z johnnyw $
-
 #include "ace/Sig_Handler.h"
 #include "ace/Sig_Adapter.h"
 #include "ace/Signal.h"
@@ -11,8 +9,6 @@
 #if !defined (__ACE_INLINE__)
 #include "ace/Sig_Handler.inl"
 #endif /* __ACE_INLINE__ */
-
-
 
 #if defined (ACE_HAS_SIG_C_FUNC)
 

@@ -26,5 +26,3 @@ add_library(gsoap STATIC
 target_include_directories(gsoap
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 )
-
-set_target_properties(gsoap PROPERTIES FOLDER "dep")

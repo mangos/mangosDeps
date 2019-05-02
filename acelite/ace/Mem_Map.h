@@ -4,9 +4,7 @@
 /**
  *  @file    Mem_Map.h
  *
- *  $Id: Mem_Map.h 91066 2010-07-12 11:05:04Z johnnyw $
- *
- *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
+ *  @author Douglas C. Schmidt <d.schmidt@vanderbilt.edu>
  */
 //==========================================================================
 

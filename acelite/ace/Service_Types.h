@@ -4,9 +4,7 @@
 /**
  *  @file    Service_Types.h
  *
- *  $Id: Service_Types.h 89925 2010-04-19 12:49:11Z cbeaulac $
- *
- *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
+ *  @author Douglas C. Schmidt <d.schmidt@vanderbilt.edu>
  */
 //==========================================================================
 

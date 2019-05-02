@@ -51,7 +51,9 @@
 // Cryptography support
 
 // Headers from LibTomCrypt
-#include "libtomcrypt/src/headers/tomcrypt.h"
+#include "tomcrypt.h"
+
+#include "rsa/rsa_verify_simple.h"
 
 // For HashStringJenkins
 #include "jenkins/lookup.h"

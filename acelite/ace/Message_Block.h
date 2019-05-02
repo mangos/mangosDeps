@@ -4,9 +4,7 @@
 /**
  *  @file    Message_Block.h
  *
- *  $Id: Message_Block.h 97262 2013-08-09 08:32:10Z johnnyw $
- *
- *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
+ *  @author Douglas C. Schmidt <d.schmidt@vanderbilt.edu>
  */
 //==========================================================================
 
@@ -717,7 +715,7 @@ public:
    */
   char *mark (void) const;
 
-  // = Message size is the total amount of space allotred.
+  // = Message size is the total amount of space allocated.
 
   /// Get the total amount of allotted space in the message.  The amount of
   /// allotted space may be less than allocated space.

@@ -59,15 +59,11 @@ add_library(g3dlite STATIC
     G3D/uint128.cpp
 )
 
-target_link_libraries(g3dlite PRIVATE ZLIB::ZLIB)
+target_link_libraries(g3dlite
+    PRIVATE
+        ZLIB::ZLIB
+)
 
 target_include_directories(g3dlite
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 )
-
-
-target_compile_options(g3dlite
-    PRIVATE $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>: -Wno-ignored-attributes>
-)
-
-set_target_properties(g3dlite PROPERTIES FOLDER "dep")

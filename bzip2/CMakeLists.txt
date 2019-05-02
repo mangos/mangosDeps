@@ -13,6 +13,10 @@ add_library(bzip2
 add_library(BZip2::BZip2 ALIAS bzip2)
 
 target_include_directories(bzip2
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR})
 
-set_target_properties(bzip2 PROPERTIES FOLDER "dep")
+target_compile_definitions(bzip2
+    PUBLIC
+        BZ_STRICT_ANSI
+)
