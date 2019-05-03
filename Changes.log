@@ -1,3 +1,7 @@
+May 3rd, 2019
+    - fixed ACE_SIZE_T_FORMAT_SPECIFIER for FreeBSD
+    - applied FreeBSD 12+ patches from ports collection to ACE
+
 May 2nd, 2019
     - fixed a typo which prevented ACE to be built as static lib
     - added _WANT_SEMUN compiler definition for ACE when build on FreeBSD 12+
@@ -5,8 +9,6 @@ May 2nd, 2019
     - removed redundant zlib and bzip2 sources from stormlib
     - added TomCrypt and TomMath as static libs for future removal of OpenSSL
     - changed CmakeLists.txt files to proper show header files on IDEs
-    - version for zlib raised to x.y.z
-    - vesion for bzip2 raised to x.y.z
     - removed mersenne source code
 
 January 16th, 2019
