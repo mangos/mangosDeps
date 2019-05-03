@@ -20,9 +20,14 @@ project(ACE VERSION 6.5.5)
 
 set(ACE_SOURCES
   ace/ACE.cpp
-  ace/ACE_crc_ccitt.cpp
   ace/ACE_crc32.cpp
-  ace/ace_wchar.cpp
+  ace/ACE_crc_ccitt.cpp
+  ace/ATM_Acceptor.cpp
+  ace/ATM_Addr.cpp
+  ace/ATM_Connector.cpp
+  ace/ATM_Params.cpp
+  ace/ATM_QoS.cpp
+  ace/ATM_Stream.cpp
   ace/Activation_Queue.cpp
   ace/Active_Map_Manager.cpp
   ace/Addr.cpp
@@ -31,12 +36,6 @@ set(ACE_SOURCES
   ace/Asynch_IO.cpp
   ace/Asynch_IO_Impl.cpp
   ace/Asynch_Pseudo_Task.cpp
-  ace/ATM_Acceptor.cpp
-  ace/ATM_Addr.cpp
-  ace/ATM_Connector.cpp
-  ace/ATM_Params.cpp
-  ace/ATM_QoS.cpp
-  ace/ATM_Stream.cpp
   ace/Atomic_Op.cpp
   ace/Atomic_Op_Sparc.c
   ace/Barrier.cpp
@@ -44,11 +43,12 @@ set(ACE_SOURCES
   ace/Based_Pointer_Repository.cpp
   ace/Basic_Stats.cpp
   ace/Basic_Types.cpp
-  ace/Capabilities.cpp
   ace/CDR_Base.cpp
-  ace/CDR_Stream.cpp
   ace/CDR_Size.cpp
+  ace/CDR_Stream.cpp
+  ace/Capabilities.cpp
   ace/Cleanup.cpp
+  ace/Codecs.cpp
   ace/Codeset_IBM1047.cpp
   ace/Codeset_Registry.cpp
   ace/Codeset_Registry_db.cpp
@@ -60,18 +60,23 @@ set(ACE_SOURCES
   ace/Connection_Recycling_Strategy.cpp
   ace/Containers.cpp
   ace/Copy_Disabled.cpp
-  ace/Date_Time.cpp
   ace/DEV.cpp
   ace/DEV_Addr.cpp
   ace/DEV_Connector.cpp
   ace/DEV_IO.cpp
+  ace/DLL.cpp
   ace/DLL_Manager.cpp
+  ace/Date_Time.cpp
   ace/Dev_Poll_Reactor.cpp
   ace/Dirent.cpp
   ace/Dirent_Selector.cpp
   ace/Dump.cpp
   ace/Dynamic.cpp
   ace/Dynamic_Message_Strategy.cpp
+  ace/Dynamic_Service_Base.cpp
+  ace/Dynamic_Service_Dependency.cpp
+  ace/Encoding_Converter.cpp
+  ace/Encoding_Converter_Factory.cpp
   ace/Event_Base.cpp
   ace/Event_Handler.cpp
   ace/Event_Handler_Handle_Timeout_Upcall.cpp
@@ -85,6 +90,7 @@ set(ACE_SOURCES
   ace/FILE_Connector.cpp
   ace/FILE_IO.cpp
   ace/File_Lock.cpp
+  ace/Filecache.cpp
   ace/Flag_Manip.cpp
   ace/Framework_Component.cpp
   ace/Functor.cpp
@@ -96,13 +102,21 @@ set(ACE_SOURCES
   ace/High_Res_Timer.cpp
   ace/ICMP_Socket.cpp
   ace/INET_Addr.cpp
-  ace/Init_ACE.cpp
-  ace/IO_SAP.cpp
-  ace/IO_Cntl_Msg.cpp
   ace/IOStream.cpp
+  ace/IO_Cntl_Msg.cpp
+  ace/IO_SAP.cpp
   ace/IPC_SAP.cpp
+  ace/Init_ACE.cpp
+  ace/LSOCK.cpp
+  ace/LSOCK_Acceptor.cpp
+  ace/LSOCK_CODgram.cpp
+  ace/LSOCK_Connector.cpp
+  ace/LSOCK_Dgram.cpp
+  ace/LSOCK_Stream.cpp
   ace/Lib_Find.cpp
   ace/Local_Memory_Pool.cpp
+  ace/Local_Name_Space.cpp
+  ace/Local_Tokens.cpp
   ace/Lock.cpp
   ace/Log_Category.cpp
   ace/Log_Msg.cpp
@@ -114,49 +128,44 @@ set(ACE_SOURCES
   ace/Log_Msg_UNIX_Syslog.cpp
   ace/Log_Record.cpp
   ace/Logging_Strategy.cpp
-  ace/LSOCK.cpp
-  ace/LSOCK_Acceptor.cpp
-  ace/LSOCK_CODgram.cpp
-  ace/LSOCK_Connector.cpp
-  ace/LSOCK_Dgram.cpp
-  ace/LSOCK_Stream.cpp
-  ace/Malloc.cpp
-  ace/Malloc_Allocator.cpp
   ace/MEM_Acceptor.cpp
   ace/MEM_Addr.cpp
   ace/MEM_Connector.cpp
   ace/MEM_IO.cpp
-  ace/Mem_Map.cpp
   ace/MEM_SAP.cpp
   ace/MEM_Stream.cpp
+  ace/MMAP_Memory_Pool.cpp
+  ace/Malloc.cpp
+  ace/Malloc_Allocator.cpp
+  ace/Mem_Map.cpp
   ace/Message_Block.cpp
   ace/Message_Queue.cpp
   ace/Message_Queue_NT.cpp
   ace/Message_Queue_Vx.cpp
   ace/Method_Request.cpp
-  ace/MMAP_Memory_Pool.cpp
-  ace/Msg_WFMO_Reactor.cpp
   ace/Monitor_Admin.cpp
   ace/Monitor_Admin_Manager.cpp
   ace/Monitor_Base.cpp
+  ace/Monitor_Control_Action.cpp
+  ace/Monitor_Control_Types.cpp
   ace/Monitor_Point_Registry.cpp
   ace/Monitor_Size.cpp
-  ace/Monitor_Control_Types.cpp
-  ace/Monitor_Control_Action.cpp
   ace/Monotonic_Time_Policy.cpp
+  ace/Msg_WFMO_Reactor.cpp
   ace/Multihomed_INET_Addr.cpp
   ace/Mutex.cpp
+  ace/NT_Service.cpp
+  ace/Name_Proxy.cpp
+  ace/Name_Request_Reply.cpp
+  ace/Name_Space.cpp
+  ace/Naming_Context.cpp
   ace/Netlink_Addr.cpp
-  ace/Notification_Strategy.cpp
   ace/Notification_Queue.cpp
+  ace/Notification_Strategy.cpp
   ace/Null_Mutex.cpp
-  ace/Obchunk.cpp
-  ace/Object_Manager.cpp
-  ace/Object_Manager_Base.cpp
-  ace/Obstack.cpp
   ace/OS_Errno.cpp
   ace/OS_Log_Msg_Attributes.cpp
-  ace/OS_main.cpp
+  ace/OS_NS_Thread.cpp
   ace/OS_NS_arpa_inet.cpp
   ace/OS_NS_ctype.cpp
   ace/OS_NS_devctl.cpp
@@ -187,22 +196,26 @@ set(ACE_SOURCES
   ace/OS_NS_sys_uio.cpp
   ace/OS_NS_sys_utsname.cpp
   ace/OS_NS_sys_wait.cpp
-  ace/OS_NS_Thread.cpp
   ace/OS_NS_time.cpp
   ace/OS_NS_unistd.cpp
   ace/OS_NS_wchar.cpp
   ace/OS_NS_wctype.cpp
   ace/OS_QoS.cpp
-  ace/OS_Thread_Adapter.cpp
   ace/OS_TLI.cpp
-  ace/Pagefile_Memory_Pool.cpp
-  ace/Parse_Node.cpp
+  ace/OS_Thread_Adapter.cpp
+  ace/OS_main.cpp
+  ace/Obchunk.cpp
+  ace/Object_Manager.cpp
+  ace/Object_Manager_Base.cpp
+  ace/Obstack.cpp
   ace/PI_Malloc.cpp
-  ace/Ping_Socket.cpp
-  ace/Pipe.cpp
   ace/POSIX_Asynch_IO.cpp
   ace/POSIX_CB_Proactor.cpp
   ace/POSIX_Proactor.cpp
+  ace/Pagefile_Memory_Pool.cpp
+  ace/Parse_Node.cpp
+  ace/Ping_Socket.cpp
+  ace/Pipe.cpp
   ace/Priority_Reactor.cpp
   ace/Proactor.cpp
   ace/Proactor_Impl.cpp
@@ -211,6 +224,9 @@ set(ACE_SOURCES
   ace/Process_Mutex.cpp
   ace/Process_Semaphore.cpp
   ace/Profile_Timer.cpp
+  ace/RW_Mutex.cpp
+  ace/RW_Process_Mutex.cpp
+  ace/RW_Thread_Mutex.cpp
   ace/Reactor.cpp
   ace/Reactor_Impl.cpp
   ace/Reactor_Notification_Strategy.cpp
@@ -219,26 +235,13 @@ set(ACE_SOURCES
   ace/Recursive_Thread_Mutex.cpp
   ace/Recyclable.cpp
   ace/Registry.cpp
+  ace/Registry_Name_Space.cpp
+  ace/Remote_Name_Space.cpp
+  ace/Remote_Tokens.cpp
   ace/Rtems_init.c
-  ace/RW_Mutex.cpp
-  ace/RW_Process_Mutex.cpp
-  ace/RW_Thread_Mutex.cpp
-  ace/Sample_History.cpp
-  ace/Sbrk_Memory_Pool.cpp
-  ace/Sched_Params.cpp
-  ace/Select_Reactor_Base.cpp
-  ace/Semaphore.cpp
-  ace/Shared_Memory.cpp
-  ace/Shared_Memory_MM.cpp
-  ace/Shared_Memory_Pool.cpp
-  ace/Shared_Memory_SV.cpp
-  ace/Sig_Adapter.cpp
-  ace/Sig_Handler.cpp
-  ace/Signal.cpp
   ace/SOCK.cpp
   ace/SOCK_Acceptor.cpp
   ace/SOCK_CODgram.cpp
-  ace/Sock_Connect.cpp
   ace/SOCK_Connector.cpp
   ace/SOCK_Dgram.cpp
   ace/SOCK_Dgram_Bcast.cpp
@@ -255,17 +258,46 @@ set(ACE_SOURCES
   ace/SPIPE_Connector.cpp
   ace/SPIPE_Stream.cpp
   ace/SString.cpp
-  ace/Stack_Trace.cpp
-  ace/Stats.cpp
-  ace/String_Base_Const.cpp
   ace/SUN_Proactor.cpp
   ace/SV_Message.cpp
   ace/SV_Message_Queue.cpp
   ace/SV_Semaphore_Complex.cpp
   ace/SV_Semaphore_Simple.cpp
   ace/SV_Shared_Memory.cpp
+  ace/Sample_History.cpp
+  ace/Sbrk_Memory_Pool.cpp
+  ace/Sched_Params.cpp
+  ace/Select_Reactor_Base.cpp
+  ace/Semaphore.cpp
+  ace/Service_Config.cpp
+  ace/Service_Gestalt.cpp
+  ace/Service_Manager.cpp
+  ace/Service_Object.cpp
+  ace/Service_Repository.cpp
+  ace/Service_Types.cpp
+  ace/Shared_Memory.cpp
+  ace/Shared_Memory_MM.cpp
+  ace/Shared_Memory_Pool.cpp
+  ace/Shared_Memory_SV.cpp
+  ace/Shared_Object.cpp
+  ace/Sig_Adapter.cpp
+  ace/Sig_Handler.cpp
+  ace/Signal.cpp
+  ace/Sock_Connect.cpp
+  ace/Stack_Trace.cpp
+  ace/Stats.cpp
+  ace/String_Base_Const.cpp
+  ace/Svc_Conf_Lexer.cpp
+  ace/Svc_Conf_y.cpp
   ace/Synch_Options.cpp
   ace/System_Time.cpp
+  ace/TLI.cpp
+  ace/TLI_Acceptor.cpp
+  ace/TLI_Connector.cpp
+  ace/TLI_Stream.cpp
+  ace/TP_Reactor.cpp
+  ace/TSS_Adapter.cpp
+  ace/TTY_IO.cpp
   ace/Task.cpp
   ace/Thread.cpp
   ace/Thread_Adapter.cpp
@@ -279,23 +311,26 @@ set(ACE_SOURCES
   ace/Time_Policy.cpp
   ace/Time_Value.cpp
   ace/Timeprobe.cpp
-  ace/TLI.cpp
-  ace/TLI_Acceptor.cpp
-  ace/TLI_Connector.cpp
-  ace/TLI_Stream.cpp
   ace/Token.cpp
-  ace/TP_Reactor.cpp
+  ace/Token_Collection.cpp
+  ace/Token_Invariants.cpp
+  ace/Token_Manager.cpp
+  ace/Token_Request_Reply.cpp
   ace/Trace.cpp
-  ace/TSS_Adapter.cpp
-  ace/TTY_IO.cpp
   ace/UNIX_Addr.cpp
   ace/UPIPE_Acceptor.cpp
   ace/UPIPE_Connector.cpp
   ace/UPIPE_Stream.cpp
+  ace/UTF16_Encoding_Converter.cpp
+  ace/UTF32_Encoding_Converter.cpp
+  ace/UTF8_Encoding_Converter.cpp
+  ace/UUID.cpp
   ace/WFMO_Reactor.cpp
   ace/WIN32_Asynch_IO.cpp
   ace/WIN32_Proactor.cpp
+  ace/XML_Svc_Conf.cpp
   ace/XTI_ATM_Mcast.cpp
+  ace/ace_wchar.cpp
 )
 
 add_library(ace STATIC
@@ -309,4 +344,9 @@ target_compile_definitions(ace
         ACE_AS_STATIC_LIBS
         ACE_MT_SAFE
         $<$<PLATFORM_ID:FreeBSD>:_WANT_SEMUN>
+)
+
+target_link_libraries(ace
+    PUBLIC
+        Threads::Threads
 )

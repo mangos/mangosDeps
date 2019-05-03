@@ -1,4 +1,5 @@
 May 3rd, 2019
+    - added missing sources to ACE CMakeLists.txt
     - fixed ACE_SIZE_T_FORMAT_SPECIFIER for FreeBSD
     - applied FreeBSD 12+ patches from ports collection to ACE
 
