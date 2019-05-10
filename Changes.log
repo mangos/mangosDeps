@@ -1,3 +1,10 @@
+May 10th, 2019
+    - cleaned up libmpq
+    - bzip2 version raised to 1.0.6
+    - zlib version raised to 1.2.11
+    - root CMakeLists.txt logic improved
+    - revert some FreBSD patches
+
 May 3rd, 2019
     - added missing sources to ACE CMakeLists.txt
     - fixed ACE_SIZE_T_FORMAT_SPECIFIER for FreeBSD

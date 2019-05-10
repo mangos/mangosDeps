@@ -14,32 +14,38 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-add_subdirectory(acelite)
-add_subdirectory(recastnavigation)
-add_subdirectory(g3dlite)
-add_subdirectory(loadlib)
-add_subdirectory(utf8cpp)
-add_subdirectory(tomlib)
-
-if(SOAP)
-    add_subdirectory(gsoap)
-endif()
-
-if(SCRIPT_LIB_ELUNA)
-    add_subdirectory(lualib)
-endif()
-
-if(USE_STORMLIB)
-    add_subdirectory(StormLib)
-else()
-    add_subdirectory(libmpq)
-endif()
-
 if (NOT TARGET "ZLIB::ZLIB")
     add_subdirectory(zlib)
 endif()
 
 if (NOT TARGET "BZip2::BZip2")
     add_subdirectory(bzip2)
+endif()
+
+add_subdirectory(acelite)
+add_subdirectory(utf8cpp)
+
+if(BUILD_MANGOSD)
+    if(SCRIPT_LIB_ELUNA)
+        add_subdirectory(lualib)
+    endif()
+    if(SOAP)
+        add_subdirectory(gsoap)
+    endif()
+endif()
+
+if(BUILD_MANGOSD OR BUILD_TOOLS)
+    add_subdirectory(recastnavigation)
+    add_subdirectory(g3dlite)
+endif()
+
+if(BUILD_TOOLS)
+    if(USE_STORMLIB)
+        add_subdirectory(StormLib)
+        add_subdirectory(tomlib)
+    else()
+        add_subdirectory(libmpq)
+    endif()
+    add_subdirectory(loadlib)
 endif()
 

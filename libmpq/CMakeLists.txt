@@ -48,7 +48,7 @@ set(HAVE_LIBZ 1)
 set(LIBMPQ_PACKAGE_VERSION "0.4.2")
 set(LIBMPQ_PACKAGE_NAME "libmpq")
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+configure_file(libmpq/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 add_library(libmpq
     libmpq/common.c
@@ -66,7 +66,7 @@ add_library(libmpq
     libmpq/platform.h
     libmpq/wave.c
     libmpq/wave.h
-	${CMAKE_CURRENT_BINARY_DIR}/config.h
+    ${CMAKE_CURRENT_BINARY_DIR}/config.h
 )
 
 target_include_directories(libmpq
