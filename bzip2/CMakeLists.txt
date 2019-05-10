@@ -1,3 +1,5 @@
+project(bzip2 VERSION 1.0.6)
+
 add_library(bzip2
     blocksort.c
     bzlib.c

@@ -337,16 +337,13 @@ add_library(ace STATIC
     ${ACE_SOURCES}
 )
 
-target_include_directories(ace PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(ace
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 target_compile_definitions(ace
     PUBLIC
         ACE_AS_STATIC_LIBS
-        ACE_MT_SAFE
         $<$<PLATFORM_ID:FreeBSD>:_WANT_SEMUN>
-)
-
-target_link_libraries(ace
-    PUBLIC
-        Threads::Threads
 )

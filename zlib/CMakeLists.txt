@@ -1,7 +1,4 @@
-#
-# Copyright (C) 1995-2011 Mark Adler
-# For conditions of distribution and use, see copyright notice in zlib.h
-#
+project (zlib VERSION 1.2.11)
 
 add_library(zlib
     adler32.c
@@ -35,7 +32,6 @@ add_library(zlib
 add_library(ZLIB::ZLIB ALIAS zlib)
 
 target_include_directories(zlib
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
 )
-
-set_target_properties(zlib PROPERTIES FOLDER "dep")
