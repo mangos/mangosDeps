@@ -331,6 +331,10 @@ set(ACE_SOURCES
   ace/XML_Svc_Conf.cpp
   ace/XTI_ATM_Mcast.cpp
   ace/ace_wchar.cpp
+  $<$<BOOL:${PCH}>:
+    pch.cpp
+    pch.h
+  >
 )
 
 add_library(ace STATIC
@@ -347,3 +351,7 @@ target_compile_definitions(ace
         ACE_AS_STATIC_LIBS
         $<$<PLATFORM_ID:FreeBSD>:_WANT_SEMUN>
 )
+
+if(PCH)
+    add_cxx_pch(ace ${CMAKE_CURRENT_SOURCE_DIR}/pch.h ${CMAKE_CURRENT_SOURCE_DIR}/pch.cpp)
+endif()

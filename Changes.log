@@ -1,3 +1,6 @@
+May 15, 2019
+    - added PCH support for ACE
+
 May 10th, 2019
     - cleaned up libmpq
     - bzip2 version raised to 1.0.6
