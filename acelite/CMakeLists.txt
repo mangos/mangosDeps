@@ -37,7 +37,6 @@ set(ACE_SOURCES
   ace/Asynch_IO_Impl.cpp
   ace/Asynch_Pseudo_Task.cpp
   ace/Atomic_Op.cpp
-  ace/Atomic_Op_Sparc.c
   ace/Barrier.cpp
   ace/Base_Thread_Adapter.cpp
   ace/Based_Pointer_Repository.cpp
@@ -238,7 +237,6 @@ set(ACE_SOURCES
   ace/Registry_Name_Space.cpp
   ace/Remote_Name_Space.cpp
   ace/Remote_Tokens.cpp
-  ace/Rtems_init.c
   ace/SOCK.cpp
   ace/SOCK_Acceptor.cpp
   ace/SOCK_CODgram.cpp
