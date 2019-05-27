@@ -1,7 +1,9 @@
-file(GLOB SOURCES Source/*.cpp)
-file(GLOB INCLUDES Include/*.h)
+project(Recast VERSION 1.0.0)
 
-add_library(Recast STATIC ${SOURCES} ${INCLUDES})
+file(GLOB RCT_SOURCES Source/*.cpp)
+file(GLOB RCT_INCLUDES Include/*.h)
+
+add_library(Recast STATIC ${RCT_SOURCES} ${RCT_INCLUDES})
 add_library(RecastNavigation::Recast ALIAS Recast)
 
 target_include_directories(Recast

@@ -1,6 +1,6 @@
 project (zlib VERSION 1.2.11)
 
-add_library(zlib
+add_library(zlib STATIC
     adler32.c
     compress.c
     crc32.c

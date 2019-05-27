@@ -50,7 +50,7 @@ set(LIBMPQ_PACKAGE_NAME "libmpq")
 
 configure_file(libmpq/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
-add_library(libmpq
+add_library(libmpq STATIC
     libmpq/common.c
     libmpq/common.h
     libmpq/crypt_buf.h

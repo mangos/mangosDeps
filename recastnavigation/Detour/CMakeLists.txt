@@ -1,7 +1,9 @@
-file(GLOB SOURCES Source/*.cpp)
-file(GLOB INCLUDES Include/*.h)
+project(Detour VERSION 1.0.0)
 
-add_library(Detour STATIC ${SOURCES} ${INCLUDES})
+file(GLOB DTR_SOURCES Source/*.cpp)
+file(GLOB DTR_INCLUDES Include/*.h)
+
+add_library(Detour STATIC ${DTR_SOURCES} ${DTR_INCLUDES})
 add_library(RecastNavigation::Detour ALIAS Detour)
 
 target_include_directories(Detour
