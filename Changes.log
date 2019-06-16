@@ -1,3 +1,6 @@
+June 16, 2019
+    - revert some ACE changes which badly affected threads in FreeBSD
+
 May 27, 2019
     - fixed TomLib::Crypt build on VS
     - fixed Detour/Recast CMake configuration
