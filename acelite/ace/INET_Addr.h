@@ -36,8 +36,6 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 class ACE_Export ACE_INET_Addr : public ACE_Addr
 {
 public:
-  // = Initialization methods.
-
   /// Default constructor.
   ACE_INET_Addr (void);
 
@@ -346,6 +344,9 @@ public:
 #if defined (ACE_HAS_IPV6)
   /// Return @c true if the IP address is IPv6 linklocal address.
   bool is_linklocal (void) const;
+
+  /// Return @c true if the IP address is IPv6 sitelocal address.
+  bool is_sitelocal (void) const;
 
   /// Return @c true if the IP address is IPv4-mapped IPv6 address.
   bool is_ipv4_mapped_ipv6 (void) const;

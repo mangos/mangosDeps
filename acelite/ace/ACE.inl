@@ -7,7 +7,6 @@
 // Open versioned namespace, if enabled by the user.
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
-
 // Wrappers for methods that have been moved to ACE_OS.
 
 ACE_INLINE ssize_t
@@ -217,7 +216,7 @@ ACE::sendv_n (ACE_HANDLE handle,
 ACE_INLINE ssize_t
 ACE::send_i (ACE_HANDLE handle, const void *buf, size_t len)
 {
-#if defined (ACE_WIN32) || defined (HPUX)
+#if defined (ACE_WIN32) || defined (HPUX) || defined (ACE_MQX)
   return ACE_OS::send (handle, (const char *) buf, len);
 #else
   return ACE_OS::write (handle, (const char *) buf, len);
@@ -227,7 +226,7 @@ ACE::send_i (ACE_HANDLE handle, const void *buf, size_t len)
 ACE_INLINE ssize_t
 ACE::recv_i (ACE_HANDLE handle, void *buf, size_t len)
 {
-#if defined (ACE_WIN32) || defined (ACE_OPENVMS)
+#if defined (ACE_WIN32) || defined (ACE_OPENVMS) || defined (ACE_MQX)
   return ACE_OS::recv (handle, (char *) buf, len);
 #else
   return ACE_OS::read (handle, (char *) buf, len);

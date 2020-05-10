@@ -185,15 +185,6 @@ enum schedparam_policy {
 # define ACE_HAS_VOID_UNSETENV
 #endif
 
-#if defined (__ia64) || defined(__alpha) || defined (__x86_64__) || defined(__powerpc64__) || (defined(__mips__) && defined(__LP64__)) || defined (__aarch64__)
-// On 64 bit platforms, the "long" type is 64-bits.  Override the
-// default 32-bit platform-specific format specifiers appropriately.
-//# define ACE_UINT64_FORMAT_SPECIFIER_ASCII "%lu"
-//# define ACE_SSIZE_T_FORMAT_SPECIFIER_ASCII "%ld"
-# define ACE_SIZE_T_FORMAT_SPECIFIER_ASCII "%lu"
-#endif /* __ia64 */
-
-
 #include /**/ "ace/post.h"
 
 #endif /* ACE_CONFIG_H */

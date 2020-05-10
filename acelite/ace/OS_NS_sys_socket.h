@@ -65,9 +65,7 @@
 #endif
 
 #if defined (ACE_HAS_IPV6)
-#if defined (IPV6_PKTINFO)
-#define ACE_RECVPKTINFO6 IPV6_PKTINFO
-#elif defined (IPV6_RECVPKTINFO)
+#if defined (IPV6_RECVPKTINFO)
 #define ACE_RECVPKTINFO6 IPV6_RECVPKTINFO
 #endif
 #endif
@@ -193,6 +191,14 @@ namespace ACE_OS
                    struct msghdr *msg,
                    int flags);
 
+#if !defined ACE_LACKS_RECVMSG && defined ACE_HAS_WINSOCK2 && ACE_HAS_WINSOCK2
+  extern ACE_Export
+  int recvmsg_win32_i (ACE_HANDLE handle,
+                       msghdr *msg,
+                       int flags,
+                       unsigned long &bytes_received);
+#endif
+
   ACE_NAMESPACE_INLINE_FUNCTION
   ssize_t recvv (ACE_HANDLE handle,
                  iovec *iov,
@@ -216,6 +222,14 @@ namespace ACE_OS
   ssize_t sendmsg (ACE_HANDLE handle,
                    const struct msghdr *msg,
                    int flags);
+
+#if !defined ACE_LACKS_RECVMSG && defined ACE_HAS_WINSOCK2 && ACE_HAS_WINSOCK2
+  extern ACE_Export
+  int sendmsg_win32_i (ACE_HANDLE handle,
+                       msghdr const *msg,
+                       int flags,
+                       unsigned long &bytes_sent);
+#endif
 
   ACE_NAMESPACE_INLINE_FUNCTION
   ssize_t sendto (ACE_HANDLE handle,
@@ -260,7 +274,6 @@ namespace ACE_OS
   int shutdown (ACE_HANDLE handle,
                 int how);
 
-#if defined (ACE_LINUX) && defined (ACE_HAS_IPV6)
   ACE_NAMESPACE_INLINE_FUNCTION
   unsigned int if_nametoindex (const char *ifname);
 
@@ -272,7 +285,6 @@ namespace ACE_OS
 
   ACE_NAMESPACE_INLINE_FUNCTION
   void if_freenameindex (struct if_nameindex *ptr);
-#endif /* ACE_LINUX && ACE_HAS_IPV6 */
 
   /// Initialize WinSock before first use (e.g., when a DLL is first
   /// loaded or the first use of a socket() call.

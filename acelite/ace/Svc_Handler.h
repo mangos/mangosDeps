@@ -69,7 +69,6 @@ template <typename PEER_STREAM, typename SYNCH_TRAITS>
 class ACE_Svc_Handler : public ACE_Task<SYNCH_TRAITS>
 {
 public:
-
   // Useful STL-style traits.
   typedef typename PEER_STREAM::PEER_ADDR addr_type;
   typedef PEER_STREAM stream_type;
@@ -280,7 +279,6 @@ template <typename PEER_STREAM, typename SYNCH_TRAITS>
 class ACE_Buffered_Svc_Handler : public ACE_Svc_Handler<PEER_STREAM, SYNCH_TRAITS>
 {
 public:
-  // = Initialization and termination methods.
   /**
    * Constructor initializes the @a thr_mgr and @a mq by passing them
    * down to the ACE_Task base class.  The @a reactor is passed to

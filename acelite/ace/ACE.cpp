@@ -1014,7 +1014,6 @@ ACE::recvv_n_i (ACE_HANDLE handle,
               if (result != -1)
                 {
                   // Blocking subsided.  Continue data transfer.
-                  n = 0;
                   continue;
                 }
             }
@@ -1078,7 +1077,6 @@ ACE::recvv_n_i (ACE_HANDLE handle,
                 {
                   // Blocking subsided in <timeout> period.  Continue
                   // data transfer.
-                  n = 0;
                   continue;
                 }
             }
@@ -1806,7 +1804,6 @@ ACE::sendv_n_i (ACE_HANDLE handle,
               if (result != -1)
                 {
                   // Blocking subsided.  Continue data transfer.
-                  n = 0;
                   continue;
                 }
             }
@@ -1876,7 +1873,6 @@ ACE::sendv_n_i (ACE_HANDLE handle,
                 {
                   // Blocking subsided in <timeout> period.  Continue
                   // data transfer.
-                  n = 0;
                   continue;
                 }
             }
@@ -2793,7 +2789,7 @@ ACE::fork (const ACE_TCHAR *program_name,
             {
             case 0: // grandchild returns 0.
               return 0;
-            case -1: // assumes all errnos are < 256
+            case static_cast<pid_t>(-1): // assumes all errnos are < 256
               ACE_OS::_exit (errno);
             default:  // child terminates, orphaning grandchild
               ACE_OS::_exit (0);
