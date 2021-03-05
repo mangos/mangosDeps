@@ -23,12 +23,12 @@
 
 static void *rcAllocDefault(size_t size, rcAllocHint)
 {
-	return malloc(size);
+    return malloc(size);
 }
 
 static void rcFreeDefault(void *ptr)
 {
-	free(ptr);
+    free(ptr);
 }
 
 static rcAllocFunc* sRecastAllocFunc = rcAllocDefault;
@@ -37,14 +37,14 @@ static rcFreeFunc* sRecastFreeFunc = rcFreeDefault;
 /// @see rcAlloc, rcFree
 void rcAllocSetCustom(rcAllocFunc *allocFunc, rcFreeFunc *freeFunc)
 {
-	sRecastAllocFunc = allocFunc ? allocFunc : rcAllocDefault;
-	sRecastFreeFunc = freeFunc ? freeFunc : rcFreeDefault;
+    sRecastAllocFunc = allocFunc ? allocFunc : rcAllocDefault;
+    sRecastFreeFunc = freeFunc ? freeFunc : rcFreeDefault;
 }
 
 /// @see rcAllocSetCustom
 void* rcAlloc(size_t size, rcAllocHint hint)
 {
-	return sRecastAllocFunc(size, hint);
+    return sRecastAllocFunc(size, hint);
 }
 
 /// @par
@@ -55,6 +55,6 @@ void* rcAlloc(size_t size, rcAllocHint hint)
 /// @see rcAllocSetCustom
 void rcFree(void* ptr)
 {
-	if (ptr)
-		sRecastFreeFunc(ptr);
+    if (ptr)
+        sRecastFreeFunc(ptr);
 }

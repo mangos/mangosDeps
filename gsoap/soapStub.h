@@ -33,8 +33,8 @@ A commercial use license is available from Genivia Inc., contact@genivia.com
  *                                                                            *
 \******************************************************************************/
 
-struct ns1__executeCommandResponse;	/* gsoap.stub:1 */
-struct ns1__executeCommand;	/* gsoap.stub:1 */
+struct ns1__executeCommandResponse;    /* gsoap.stub:1 */
+struct ns1__executeCommand;    /* gsoap.stub:1 */
 
 /* gsoap.stub:1 */
 #ifndef SOAP_TYPE_ns1__executeCommandResponse

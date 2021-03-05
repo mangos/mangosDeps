@@ -121,7 +121,7 @@ public:
             return __sync_sub_and_fetch(&m_value, 1);
 
 #       elif defined(G3D_LINUX)  || defined(G3D_FREEBSD)
-	    unsigned char nz;
+        unsigned char nz;
 
             asm volatile ("lock; decl %1;\n\t"
                           "setnz %%al"
