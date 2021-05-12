@@ -1,3 +1,8 @@
+May 12, 2020
+    - Make some changes to ACE to allow building on OSX
+    - Make some changes to G3D to allow building on OSX
+    See Commit: https://github.com/mangos/mangosDeps/commit/f717fed03a3ed5f82c10f45c2ea429d9df6f3e1a
+    
 June 16, 2019
     - revert some ACE changes which badly affected threads in FreeBSD
 
