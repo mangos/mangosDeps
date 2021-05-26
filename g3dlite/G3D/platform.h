@@ -268,7 +268,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrev, LPSTR szCmdLine, int sw) {\
 #       ifndef __stdcall
 #           define __stdcall
 #       endif
-#   elif defined(__arm__)
+#   elif defined(__arm__) || defined(__aarch64__)
         // CDECL does not apply to arm.
 #       define __cdecl
 #   endif // calling conventions
