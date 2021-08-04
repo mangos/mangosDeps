@@ -14,39 +14,16 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-if (NOT TARGET "ZLIB::ZLIB")
-    add_subdirectory(zlib)
-endif()
+set(OPENSSL_EXPECTED_VERSION 1.0.0)
 
-if (NOT TARGET "BZip2::BZip2")
-    add_subdirectory(bzip2)
-endif()
+find_package(OpenSSL REQUIRED)
 
-add_subdirectory(acelite)
-add_subdirectory(utf8cpp)
-add_subdirectory(openssl)
+add_library(openssl INTERFACE)
 
-if(BUILD_MANGOSD)
-    if(SCRIPT_LIB_ELUNA)
-        add_subdirectory(lualib)
-    endif()
-    if(SOAP)
-        add_subdirectory(gsoap)
-    endif()
-endif()
+target_link_libraries(openssl
+  INTERFACE
+    ${OPENSSL_LIBRARIES})
 
-if(BUILD_MANGOSD OR BUILD_TOOLS)
-    add_subdirectory(recastnavigation)
-    add_subdirectory(g3dlite)
-endif()
-
-if(BUILD_TOOLS)
-    if(USE_STORMLIB)
-        add_subdirectory(StormLib)
-        add_subdirectory(tomlib)
-    else()
-        add_subdirectory(libmpq)
-    endif()
-    add_subdirectory(loadlib)
-endif()
-
+target_include_directories(openssl
+  INTERFACE
+    ${OPENSSL_INCLUDE_DIR})
