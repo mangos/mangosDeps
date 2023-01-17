@@ -27,8 +27,9 @@
      wrong parameter order in call to bzDecompressInit in
      bzBuffToBuffDecompress.  Fixed.
 */
-
+#if ndefine _CRT_SECURE_NO_WARNINGS
 #define _CRT_SECURE_NO_WARNINGS
+#endif
 #include "bzlib_private.h"
 
 
