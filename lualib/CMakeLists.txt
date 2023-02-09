@@ -3,6 +3,10 @@
 # This program is free software licensed under GPL version 3
 # Please see the included DOCS/LICENSE.md for more information
 #
+cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
+
+set(CMAKE_C_STANDARD          11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 
 project(lualib VERSION 5.2.3)
 

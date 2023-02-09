@@ -14,6 +14,14 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
+cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
+
+set(CMAKE_CXX_STANDARD          14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS        OFF)
+
+project(G3DLITE)
+
 add_library(g3dlite STATIC
     G3D/AABox.cpp
     G3D/Any.cpp
