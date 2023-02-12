@@ -19,6 +19,7 @@
 #ifndef LOAD_LIB_H
 #define LOAD_LIB_H
 
+#include "StormLib.h"
 #include <cstdint>
 #include <string>
 #include <deque>
