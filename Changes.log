@@ -1,3 +1,7 @@
+February 15,2003
+    - Older Windows SDK are confused by C11, so we don't force any standard for C
+    - Added LibTomMath and LibTomCrypt again, as StormLib uses only a subset of their API
+
 February 12,2023
     - fixed build for project loadlib
     - fixed an issue which prevented stormlib include dir to be visible to extractors
