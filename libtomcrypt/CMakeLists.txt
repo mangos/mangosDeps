@@ -11,6 +11,7 @@ project(libtomcrypt
     HOMEPAGE_URL "https://www.libtom.net/LibTomCrypt"
     LANGUAGES C)
 
+include(sources.cmake)
 
 #-----------------------------------------------------------------------------
 # Compose CFLAGS
