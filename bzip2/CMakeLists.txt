@@ -15,12 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-
-cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
-
-set(CMAKE_C_STANDARD          11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-
 project(bzip2 VERSION 1.0.6)
 
 add_library(bzip2 STATIC

@@ -9,6 +9,7 @@
  * Tom St Denis, tomstdenis@gmail.com, http://libtom.org
  */
 #include "rsa_verify_simple.h"
+#include "tommath.h"
 
 /**
   @file rsa_verify_simple.c
@@ -28,10 +29,10 @@
   @param key              The public RSA key corresponding
   @return Error code
 */
-int rsa_verify_simple(const unsigned char *sig,  unsigned long siglen,
-                      const unsigned char *hash, unsigned long hashlen,
+int rsa_verify_simple(unsigned char *sig,  unsigned long siglen,
+                      unsigned char *hash, unsigned long hashlen,
                             int           *stat,
-                            rsa_key       *key)
+                            struct Rsa_key *key)
 {
   unsigned long modulus_bitlen, modulus_bytelen, x;
   unsigned char *tmpbuf;
@@ -49,7 +50,7 @@ int rsa_verify_simple(const unsigned char *sig,  unsigned long siglen,
   modulus_bitlen = mp_count_bits( (key->N));
 
   /* outlen must be at least the size of the modulus */
-  modulus_bytelen = mp_unsigned_bin_size( (key->N));
+  modulus_bytelen = mp_ubin_size( (key->N));
   if (modulus_bytelen != siglen) {
      return CRYPT_INVALID_PACKET;
   }
