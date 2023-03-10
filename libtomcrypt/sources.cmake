@@ -522,3 +522,4 @@ src/headers/tomcrypt_prng.h
 
 set(PRIVATE_HEADERS src/headers/tomcrypt_private.h)
 set_property(GLOBAL PROPERTY PUBLIC_HEADERS ${PUBLIC_HEADERS})
+
