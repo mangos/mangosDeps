@@ -14,9 +14,7 @@ static mp_err s_read_random(void *p, size_t n)
    arc4random_buf(p, n);
    return MP_OKAY;
 }
-#endif
-
-#if defined(_WIN32)
+#elif defined(_WIN32)
 #define S_READ_WINCSP_C
 
 #ifndef _WIN32_WINNT
@@ -45,9 +43,8 @@ static mp_err s_read_random(void *p, size_t n)
    }
    return CryptGenRandom(hProv, (DWORD)n, (BYTE *)p) == TRUE ? MP_OKAY : MP_ERR;
 }
-#endif /* WIN32 */
 
-#if !defined(S_READ_WINCSP_C) && defined(__linux__) && defined(__GLIBC_PREREQ)
+#elif !defined(S_READ_WINCSP_C) && defined(__linux__) && defined(__GLIBC_PREREQ)
 #if __GLIBC_PREREQ(2, 25)
 #define S_READ_GETRANDOM_C
 #include <sys/random.h>
@@ -70,12 +67,11 @@ static mp_err s_read_random(void *p, size_t n)
    return MP_OKAY;
 }
 #endif
-#endif
 
 /* We assume all platforms besides windows provide "/dev/urandom".
  * In case yours doesn't, define MP_NO_DEV_URANDOM at compile-time.
  */
-#if !defined(S_READ_WINCSP_C) && !defined(MP_NO_DEV_URANDOM)
+#elif !defined(S_READ_WINCSP_C) && !defined(MP_NO_DEV_URANDOM)
 #define S_READ_URANDOM_C
 #ifndef MP_DEV_URANDOM
 #define MP_DEV_URANDOM "/dev/urandom"
