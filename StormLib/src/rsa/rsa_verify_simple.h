@@ -11,6 +11,7 @@
 #ifndef __RSA_VERIFY_SIMPLE_H
 #define __RSA_VERIFY_SIMPLE_H
 
+//#include "tomcrypt_custom.h"
 #include "tomcrypt.h"
 
 /**
@@ -20,7 +21,10 @@
 */
 
 #ifdef LTC_MRSA
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 /**
   Simple RSA decryption
   @param sig              The signature data
@@ -31,10 +35,15 @@
   @param key              The public RSA key corresponding
   @return Error code
 */
-int rsa_verify_simple(const unsigned char *sig,  unsigned long siglen,
-                      const unsigned char *hash, unsigned long hashlen,
-                            int           *stat,
-                            rsa_key       *key);
+
+    int rsa_verify_simple(unsigned char* sig, unsigned long siglen,
+        unsigned char* hash, unsigned long hashlen,
+        int* stat,
+        struct Rsa_key* key);
+
+#ifdef __cplusplus
+}
+#endif
 #endif /* LTC_MRSA */
 
 #endif

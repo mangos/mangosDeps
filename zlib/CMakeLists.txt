@@ -16,11 +16,6 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
-
-set(CMAKE_C_STANDARD          11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-
 project (zlib VERSION 1.2.13)
 
 add_library(zlib STATIC
