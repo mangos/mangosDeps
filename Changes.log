@@ -1,14 +1,8 @@
-February 12,2023
-    - fixed build for project loadlib
-    - fixed an issue which prevented stormlib include dir to be visible to extractors
-    - raised CMake minimum version to 3.15
-
-February 9,2023
+March 13,2022
     - removed libmpq
-    - removed dep/tomlib, as stormlib compiles its own tomlib anyway
-    - removed zlib and bzip2 from stormlib
+    - removed loadlib -> moved into Extractor_projects, where it belongs
+    - removed zlib, bzip2 and tomlib from StormLib
     - fixed some CMakeLists.txt
-    - C++14 is mandatory from now on
 
 May 12, 2020
     - Make some changes to ACE to allow building on OSX

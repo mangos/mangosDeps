@@ -23,6 +23,8 @@ if (NOT TARGET "BZip2::BZip2")
 endif()
 
 add_subdirectory(acelite)
+add_subdirectory(libtommath)
+add_subdirectory(libtomcrypt)
 add_subdirectory(utf8cpp)
 
 if(BUILD_MANGOSD)
@@ -41,5 +43,4 @@ endif()
 
 if(BUILD_TOOLS)
     add_subdirectory(StormLib)
-    add_subdirectory(loadlib)
 endif()
