@@ -1,74 +1,21 @@
-#
-# Copyright (C) 2010 - 2014 Eluna Lua Engine <http://emudevs.com/>
-# This program is free software licensed under GPL version 3
-# Please see the included DOCS/LICENSE.md for more information
-#
-cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
+set(LUA_VERSION "lua52" CACHE STRING "Lua version to use")
+set_property(CACHE LUA_VERSION PROPERTY STRINGS luajit lua51 lua52 lua53 lua54)
+MESSAGE(STATUS "Lua version: ${LUA_VERSION}")
 
-set(CMAKE_C_STANDARD          11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
+# Avoid warning about DOWNLOAD_EXTRACT_TIMESTAMP in CMake 3.24:
+if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
+  cmake_policy(SET CMP0135 NEW)
+endif()
 
-project(lualib VERSION 5.2.3)
+option(LUA_STATIC "link lua statically" OFF)
+if (LUA_STATIC)
+  MESSAGE(STATUS "Lua linking: static")
+else()
+  MESSAGE(STATUS "Lua linking: dynamic")
+endif()
 
-add_library(lualib STATIC
-    lapi.c
-    lauxlib.c
-    lbaselib.c
-    lbitlib.c
-    lcode.c
-    lcorolib.c
-    lctype.c
-    ldblib.c
-    ldebug.c
-    ldo.c
-    ldump.c
-    lfunc.c
-    lgc.c
-    linit.c
-    liolib.c
-    llex.c
-    lmathlib.c
-    lmem.c
-    loadlib.c
-    lobject.c
-    lopcodes.c
-    loslib.c
-    lparser.c
-    lstate.c
-    lstring.c
-    lstrlib.c
-    ltable.c
-    ltablib.c
-    ltm.c
-    lundump.c
-    lvm.c
-    lzio.c
-    lapi.h
-    lauxlib.h
-    lcode.h
-    lctype.h
-    ldebug.h
-    ldo.h
-    lfunc.h
-    lgc.h
-    llex.h
-    llimits.h
-    lmem.h
-    lobject.h
-    lopcodes.h
-    lparser.h
-    lstate.h
-    lstring.h
-    ltable.h
-    ltm.h
-    lua.h
-    luaconf.h
-    lualib.h
-    lundump.h
-    lvm.h
-    lzio.h
-)
-
-target_include_directories(lualib
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
-)
+if (LUA_VERSION MATCHES "luajit")
+  add_subdirectory(luajit)
+else()
+  add_subdirectory(lua)
+endif()
