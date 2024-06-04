@@ -350,5 +350,5 @@ target_compile_definitions(ace
 )
 
 if(PCH)
-    add_cxx_pch(ace ${CMAKE_CURRENT_SOURCE_DIR}/pch.h ${CMAKE_CURRENT_SOURCE_DIR}/pch.cpp)
+    target_precompile_headers(ace PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/pch.h ${CMAKE_CURRENT_SOURCE_DIR}/pch.cpp)
 endif()
