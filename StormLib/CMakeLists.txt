@@ -16,15 +16,8 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
-
-set(CMAKE_CXX_STANDARD          14)
-set(CMAKE_C_STANDARD            11)
-set(CMAKE_C_STANDARD_REQUIRED   ON)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS        OFF)
-
 project(StormLib VERSION 9.22)
+
 set(LIBRARY_NAME stormlib)
 
 set(SRC_FILES

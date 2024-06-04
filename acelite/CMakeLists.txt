@@ -15,8 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
-
 project(ACE VERSION 6.5.9)
 
 set(ACE_SOURCES
@@ -339,9 +337,6 @@ set(ACE_SOURCES
 add_library(ace STATIC
     ${ACE_SOURCES}
 )
-
-target_compile_features(ace PUBLIC cxx_std_17)
-set_target_properties(ace PROPERTIES CXX_EXTENSIONS OFF)
 
 target_include_directories(ace
     PUBLIC
