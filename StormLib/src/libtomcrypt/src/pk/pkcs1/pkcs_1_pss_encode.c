@@ -10,9 +10,9 @@
  */
 #include "../../headers/tomcrypt.h"
 
-/** 
+/**
   @file pkcs_1_pss_encode.c
-  LTC_PKCS #1 PSS Signature Padding, Tom St Denis 
+  LTC_PKCS #1 PSS Signature Padding, Tom St Denis
 */
 
 #ifdef LTC_PKCS_1
@@ -31,7 +31,7 @@
    @return CRYPT_OK if successful
 */
 int pkcs_1_pss_encode(const unsigned char *msghash, unsigned long msghashlen,
-                            unsigned long saltlen,  prng_state   *prng,     
+                            unsigned long saltlen,  prng_state   *prng,
                             int           prng_idx, int           hash_idx,
                             unsigned long modulus_bitlen,
                             unsigned char *out,     unsigned long *outlen)
@@ -154,10 +154,10 @@ int pkcs_1_pss_encode(const unsigned char *msghash, unsigned long msghashlen,
    err = CRYPT_OK;
 LBL_ERR:
 #ifdef LTC_CLEAN_STACK
-   zeromem(DB,   modulus_len);   
-   zeromem(mask, modulus_len);   
-   zeromem(salt, modulus_len);   
-   zeromem(hash, modulus_len);   
+   zeromem(DB,   modulus_len);
+   zeromem(mask, modulus_len);
+   zeromem(salt, modulus_len);
+   zeromem(hash, modulus_len);
 #endif
 
    XFREE(hash);

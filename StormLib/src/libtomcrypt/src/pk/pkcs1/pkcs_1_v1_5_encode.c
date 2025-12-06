@@ -30,13 +30,13 @@
  *
  *  \return CRYPT_OK if successful
  */
-int pkcs_1_v1_5_encode(const unsigned char *msg, 
+int pkcs_1_v1_5_encode(const unsigned char *msg,
                              unsigned long  msglen,
                                        int  block_type,
                              unsigned long  modulus_bitlen,
-                                prng_state *prng, 
+                                prng_state *prng,
                                        int  prng_idx,
-                             unsigned char *out, 
+                             unsigned char *out,
                              unsigned long *outlen)
 {
   unsigned long modulus_len, ps_len, i;
