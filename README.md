@@ -16,8 +16,8 @@ inventing the wheel again.
 *Please note that Linux and Mac OS X users should install packages using
 their systems package management instead of source packages.*
 
-* **MySQL** / **PostgreSQL**: to store content, and user data, we rely on
-  [MySQL][1]/[MariaDB][2] and [PostgreSQL][3] to handle data.
+* **MySQL**: to store content, and user data, we rely on
+  [MySQL][1]/[MariaDB][2] to handle data.
 * **ACE**: the [ADAPTIVE Communication Environment][4] aka. *ACE* provides us
   with a solid cross-platform framework for abstracting operating system
   specific details.
@@ -49,7 +49,6 @@ Optional dependencies
 
 [1]: http://www.mysql.com/ "MySQL · The world's most popular open source database"
 [2]: http://www.mariadb.org/ "MariaDB · An enhanced, drop-in replacement for MySQL"
-[3]: http://www.postgresql.org/ "PostgreSQL · The world's most advanced open source database"
 [4]: http://www.cs.wustl.edu/~schmidt/ACE.html "ACE · The ADAPTIVE Communication Environment"
 [5]: http://github.com/memononen/recastnavigation "Recast · Navigation-mesh Toolset for Games"
 [6]: http://sourceforge.net/projects/g3d/ "G3D · G3D Innovation Engine"
