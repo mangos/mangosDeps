@@ -18,9 +18,6 @@ their systems package management instead of source packages.*
 
 * **MySQL**: to store content, and user data, we rely on
   [MySQL][1]/[MariaDB][2] to handle data.
-* **ACE**: the [ADAPTIVE Communication Environment][4] aka. *ACE* provides us
-  with a solid cross-platform framework for abstracting operating system
-  specific details.
 * **Recast**: in order to create navigation data from the client's map files,
   we use [Recast][5] to do the dirty work. It provides functions for
   rendering, pathing, etc.
@@ -49,7 +46,6 @@ Optional dependencies
 
 [1]: http://www.mysql.com/ "MySQL · The world's most popular open source database"
 [2]: http://www.mariadb.org/ "MariaDB · An enhanced, drop-in replacement for MySQL"
-[4]: http://www.cs.wustl.edu/~schmidt/ACE.html "ACE · The ADAPTIVE Communication Environment"
 [5]: http://github.com/memononen/recastnavigation "Recast · Navigation-mesh Toolset for Games"
 [6]: http://sourceforge.net/projects/g3d/ "G3D · G3D Innovation Engine"
 [7]: http://github.com/ge0rg/libmpq "libmpq · A library for reading data from MPQ archives"
