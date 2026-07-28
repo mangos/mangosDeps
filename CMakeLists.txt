@@ -35,7 +35,6 @@ endif()
 
 if(BUILD_MANGOSD OR BUILD_TOOLS)
     add_subdirectory(recastnavigation)
-    add_subdirectory(g3dlite)
 endif()
 
 if(BUILD_TOOLS)
