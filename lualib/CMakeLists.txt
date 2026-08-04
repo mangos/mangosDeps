@@ -1,4 +1,4 @@
-set(LUA_VERSION "lua54" CACHE STRING "Lua version to use")
+set(LUA_VERSION "lua55" CACHE STRING "Lua version to use")
 set_property(CACHE LUA_VERSION PROPERTY STRINGS luajit lua51 lua52 lua53 lua54 lua55)
 MESSAGE(STATUS "Lua version: ${LUA_VERSION}")
 
