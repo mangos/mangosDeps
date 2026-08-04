@@ -35,22 +35,26 @@ include(FetchContent)
 FetchContent_Declare(
   lua51
   URL      https://www.lua.org/ftp/lua-5.1.5.tar.gz
+           https://ftp2.osuosl.org/pub/blfs/conglomeration/lua/lua-5.1.5.tar.gz
   URL_HASH SHA256=2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333
 )
 FetchContent_Declare(
   lua52
   URL      https://www.lua.org/ftp/lua-5.2.4.tar.gz
+           https://ftp2.osuosl.org/pub/blfs/conglomeration/lua/lua-5.2.4.tar.gz
   URL_HASH SHA256=b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b
 )
 FetchContent_Declare(
   lua53
   URL      https://www.lua.org/ftp/lua-5.3.6.tar.gz
+           https://ftp2.osuosl.org/pub/blfs/conglomeration/lua/lua-5.3.6.tar.gz
   URL_HASH SHA256=fc5fd69bb8736323f026672b1b7235da613d7177e72558893a0bdcd320466d60
 )
 FetchContent_Declare(
   lua54
-  URL      https://www.lua.org/ftp/lua-5.4.4.tar.gz
-  URL_HASH SHA256=164c7849653b80ae67bec4b7473b884bf5cc8d2dca05653475ec2ed27b9ebf61
+  URL      https://www.lua.org/ftp/lua-5.4.8.tar.gz
+           https://ftp2.osuosl.org/pub/blfs/conglomeration/lua/lua-5.4.8.tar.gz
+  URL_HASH SHA256=4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae
 )
 FetchContent_MakeAvailable(${LUA_VERSION})
 
