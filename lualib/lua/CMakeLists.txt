@@ -32,32 +32,40 @@ project ( lua C )
 # LUA_VERSION must be one of lua51, lua52, lua53, lua54
 
 include(FetchContent)
+# Each declaration lists lua.org first and the project's own asset host second.
+# CMake tries them in order, so lua.org stays authoritative and the mirror is
+# only reached when it is unavailable -- which it was on 2026-08-04, when an
+# outage there failed every Eluna-enabled build at CMake configure time.
+#
+# Mirroring is safe by construction rather than by trust: every declaration pins
+# URL_HASH, so a substituted or corrupted tarball fails the hash and the build
+# stops. A mirror can therefore cost availability, never integrity. Each file
+# was downloaded from the mirror and confirmed byte-identical to lua.org before
+# being listed here.
 FetchContent_Declare(
   lua51
   URL      https://www.lua.org/ftp/lua-5.1.5.tar.gz
-           https://ftp2.osuosl.org/pub/blfs/conglomeration/lua/lua-5.1.5.tar.gz
+           https://assets.getmangos.eu/deps/lua-5.1.5.tar.gz
   URL_HASH SHA256=2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333
 )
 FetchContent_Declare(
   lua52
   URL      https://www.lua.org/ftp/lua-5.2.4.tar.gz
-           https://ftp2.osuosl.org/pub/blfs/conglomeration/lua/lua-5.2.4.tar.gz
+           https://assets.getmangos.eu/deps/lua-5.2.4.tar.gz
   URL_HASH SHA256=b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b
 )
 FetchContent_Declare(
   lua53
   URL      https://www.lua.org/ftp/lua-5.3.6.tar.gz
-           https://ftp2.osuosl.org/pub/blfs/conglomeration/lua/lua-5.3.6.tar.gz
+           https://assets.getmangos.eu/deps/lua-5.3.6.tar.gz
   URL_HASH SHA256=fc5fd69bb8736323f026672b1b7235da613d7177e72558893a0bdcd320466d60
 )
 FetchContent_Declare(
   lua54
   URL      https://www.lua.org/ftp/lua-5.4.8.tar.gz
-           https://ftp2.osuosl.org/pub/blfs/conglomeration/lua/lua-5.4.8.tar.gz
+           https://assets.getmangos.eu/deps/lua-5.4.8.tar.gz
   URL_HASH SHA256=4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae
 )
-# The BLFS conglomeration mirror does not carry 5.5.x, so the fallback here is
-# the project's own asset host. Verified byte-identical to lua.org before use.
 FetchContent_Declare(
   lua55
   URL      https://www.lua.org/ftp/lua-5.5.1.tar.gz
