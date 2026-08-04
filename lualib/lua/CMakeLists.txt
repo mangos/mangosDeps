@@ -56,6 +56,14 @@ FetchContent_Declare(
            https://ftp2.osuosl.org/pub/blfs/conglomeration/lua/lua-5.4.8.tar.gz
   URL_HASH SHA256=4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae
 )
+# The BLFS conglomeration mirror does not carry 5.5.x, so the fallback here is
+# the project's own asset host. Verified byte-identical to lua.org before use.
+FetchContent_Declare(
+  lua55
+  URL      https://www.lua.org/ftp/lua-5.5.1.tar.gz
+           https://assets.getmangos.eu/deps/lua-5.5.1.tar.gz
+  URL_HASH SHA256=1c4b4068d67061f2a2231ad2b5422e77acea1487ea9890f6320af614f4373dce
+)
 FetchContent_MakeAvailable(${LUA_VERSION})
 
 # Easen warnings

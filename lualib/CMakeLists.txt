@@ -1,5 +1,5 @@
 set(LUA_VERSION "lua54" CACHE STRING "Lua version to use")
-set_property(CACHE LUA_VERSION PROPERTY STRINGS luajit lua51 lua52 lua53 lua54)
+set_property(CACHE LUA_VERSION PROPERTY STRINGS luajit lua51 lua52 lua53 lua54 lua55)
 MESSAGE(STATUS "Lua version: ${LUA_VERSION}")
 
 # Avoid warning about DOWNLOAD_EXTRACT_TIMESTAMP in CMake 3.24:
